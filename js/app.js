@@ -178,3 +178,5 @@ function init() {
     // Init TypeWriter
     new TypeWriter(txtElement, words, wait);
 }
+
+console.log(`Created by H∅3ƎIИ 😀❤`);
