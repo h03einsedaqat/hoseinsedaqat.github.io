@@ -65,27 +65,52 @@ i {
     border-radius: 0 0 3px 3px;
 }
 
+.fa-linkedin {
+    transition: all 0.7s ease;
+}
+
 .fa-linkedin:hover {
     color: blue;
     cursor: pointer;
+    transform: translate(0.5px, 10px);
+}
+
+.fa-github {
+    transition: all 0.7s ease;
 }
 
 .fa-github:hover {
     color: #000000;
     cursor: pointer;
+    transform: translate(0.5px, 10px);
+}
+
+.fa-stack-overflow {
+    transition: all 0.7s ease;
 }
 
 .fa-stack-overflow:hover {
     color: orange;
     cursor: pointer;
+    transform: translate(0.5px, 10px);
+}
+
+.fa-envelope {
+    transition: all 0.7s ease;
 }
 
 .fa-envelope:hover {
     color: skyblue;
     cursor: pointer;
+    transform: translate(0.5px, 10px);
+}
+
+.fa-newspaper {
+    transition: all 0.7s ease;
 }
 
 .fa-newspaper:hover {
     color: crimson;
     cursor: pointer;
+    transform: translate(0.5px, 10px);
 }
