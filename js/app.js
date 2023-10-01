@@ -179,4 +179,4 @@ function init() {
     new TypeWriter(txtElement, words, wait);
 }
 
-console.log(`Created by H∅3ƎIИ 😀❤`);
+console.log(`Created by H∅3ƎIИ 2021 😀❤`);
