@@ -9,14 +9,14 @@ export function SkillsPageContent() {
 
   return (
     <div className="mx-auto w-full max-w-5xl space-y-6 px-4 py-6 sm:px-6 sm:py-8">
-      <header className="space-y-2">
+      <header className="space-y-1">
         <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl">
           {ui.navSkills}
         </h1>
-        <p className="max-w-2xl text-sm leading-relaxed text-ink-secondary">
+        <p className="text-xs text-ink-secondary sm:text-sm">
           {locale === 'fa'
-            ? 'مهارت‌های فنی من بر اساس کاربرد واقعی در پروژه‌ها و سامانه‌های تولیدشده دسته‌بندی شده‌اند — بدون درصدهای فرضی و با ارجاع مستقیم به مخازن.'
-            : 'Grouped by engineering discipline and linked directly to real repositories where each technology is applied—free of arbitrary percentage bars.'}
+            ? 'تکنولوژی‌ها و ابزارهای اصلی مورد استفاده در پروژه‌های عملیاتی.'
+            : 'Core technologies and tools used across production FinTech & SaaS systems.'}
         </p>
       </header>
 

@@ -178,8 +178,8 @@ export function AssistantMessage({
               </div>
               <div className="mt-0.5 text-xs text-ink-secondary">
                 {locale === 'fa'
-                  ? 'خلاصه اجرایی، سوابق کاری، مهارت‌ها، پروژه‌های شاخص و تحصیلات در قالب چاپی A4'
-                  : 'Single-source A4 Executive Resume with experience, achievements, skills & featured projects'}
+                  ? 'سوابق کاری، مهارت‌ها، پروژه‌ها و تحصیلات'
+                  : 'Experience, skills, projects & education'}
               </div>
             </div>
             <div className="flex flex-wrap gap-2">

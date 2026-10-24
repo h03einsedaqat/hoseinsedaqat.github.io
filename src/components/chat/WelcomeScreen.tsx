@@ -1,7 +1,6 @@
 'use client';
 
-import React from 'react';
-import { HSLogo } from '@/components/brand/HSLogo';
+import React, { useEffect, useState } from 'react';
 import { RecommendationCards } from '@/components/chat/RecommendationCards';
 import { useLanguage } from '@/context/LanguageContext';
 import { profileData } from '@/data/resume';
@@ -12,30 +11,88 @@ interface WelcomeScreenProps {
   disabled?: boolean;
 }
 
+function TypewriterGreeting({ text }: { text: string }) {
+  const [displayed, setDisplayed] = useState('');
+  const [phase, setPhase] = useState<'typing' | 'pausing' | 'deleting' | 'resting'>(
+    'typing'
+  );
+
+  // Reset cleanly whenever language/text changes
+  useEffect(() => {
+    setDisplayed('');
+    setPhase('typing');
+  }, [text]);
+
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      setDisplayed(text);
+      return;
+    }
+
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (phase === 'typing') {
+      if (displayed.length < text.length) {
+        timer = setTimeout(() => {
+          setDisplayed(text.slice(0, displayed.length + 1));
+        }, 55);
+      } else {
+        timer = setTimeout(() => {
+          setPhase('pausing');
+        }, 2200);
+      }
+    } else if (phase === 'pausing') {
+      setPhase('deleting');
+    } else if (phase === 'deleting') {
+      if (displayed.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayed(text.slice(0, displayed.length - 1));
+        }, 28);
+      } else {
+        timer = setTimeout(() => {
+          setPhase('resting');
+        }, 420);
+      }
+    } else if (phase === 'resting') {
+      setPhase('typing');
+    }
+
+    return () => clearTimeout(timer);
+  }, [displayed, phase, text]);
+
+  return (
+    <h1
+      aria-label={text}
+      className="flex min-h-[3.25rem] max-w-xl items-center justify-center text-lg font-semibold leading-snug tracking-tight text-ink sm:min-h-[2.5rem] sm:text-xl md:text-2xl"
+    >
+      <span aria-hidden="true" className="inline-flex items-center">
+        <span>{displayed}</span>
+        <span className="ms-0.5 inline-block h-[1.08em] w-[2px] shrink-0 rounded-full bg-accent animate-cursor-blink" />
+      </span>
+    </h1>
+  );
+}
+
 export function WelcomeScreen({ onSelectPrompt, disabled = false }: WelcomeScreenProps) {
   const { locale } = useLanguage();
+  const fullGreeting = tText(profileData.welcomeGreeting, locale);
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-4 py-8 sm:px-6">
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center space-y-6">
-        {/* Centered Brand & Greeting */}
+        {/* Centered Portrait & Animated Single-Line Greeting */}
         <div className="flex flex-col items-center text-center">
-          <div className="mb-4 flex items-center gap-3">
-            <img
-              src={profileData.avatarUrl}
-              alt={tText(profileData.name, locale)}
-              className="h-12 w-12 rounded-2xl border border-line-strong object-cover shadow-subtle"
-            />
-            <HSLogo size="lg" />
-          </div>
+          <img
+            src={profileData.avatarUrl}
+            alt="Hosein Sedaqat (حسین صداقت) — Full-Stack Developer"
+            className="mb-3.5 h-16 w-16 rounded-2xl border border-line-strong object-cover object-top shadow-subtle"
+          />
 
-          <h1 className="max-w-2xl text-xl font-semibold leading-snug tracking-tight text-ink sm:text-2xl md:text-[26px]">
-            {tText(profileData.welcomeGreeting, locale)}
-          </h1>
-
-          <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-ink-secondary sm:text-[15px]">
-            {tText(profileData.welcomeSubtitle, locale)}
-          </p>
+          <TypewriterGreeting text={fullGreeting} />
         </div>
 
         {/* 10 Interactive Starter Recommendations */}

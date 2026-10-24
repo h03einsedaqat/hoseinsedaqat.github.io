@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -13,17 +13,15 @@ import {
   Linkedin,
   Mail,
   MessageSquarePlus,
-  Moon,
   PanelLeftClose,
   PanelLeftOpen,
-  Search,
-  Sun,
+  Settings,
   User,
   X,
 } from 'lucide-react';
 import { HSLogo } from '@/components/brand/HSLogo';
 import { ConversationHistory } from '@/components/layout/ConversationHistory';
-import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
+import { SettingsModal } from '@/components/layout/SettingsModal';
 import { useChat } from '@/context/ChatContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
@@ -64,8 +62,6 @@ function RailItemWrapper({ label, children }: RailTooltipButtonProps) {
 
 export function Sidebar() {
   const {
-    searchQuery,
-    setSearchQuery,
     sidebarCollapsed,
     toggleSidebarCollapsed,
     mobileDrawerOpen,
@@ -73,8 +69,9 @@ export function Sidebar() {
     startNewChat,
   } = useChat();
   const { locale, isRTL, ui } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const pathname = usePathname();
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   useEffect(() => {
     if (!mobileDrawerOpen) return;
@@ -142,8 +139,8 @@ export function Sidebar() {
         )}
       </div>
 
-      {/* New Chat Button + Search */}
-      <div className="space-y-2 px-3 pb-2">
+      {/* New Chat Button */}
+      <div className="px-3 pb-2">
         <button
           type="button"
           onClick={startNewChat}
@@ -154,21 +151,6 @@ export function Sidebar() {
             <span>{ui.newChat}</span>
           </span>
         </button>
-
-        <div className="relative">
-          <Search
-            className="pointer-events-none absolute start-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-muted"
-            aria-hidden="true"
-          />
-          <input
-            type="search"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={ui.searchChatsPlaceholder}
-            aria-label={ui.searchChatsPlaceholder}
-            className="w-full rounded-lg border border-line bg-canvas/60 py-1.5 ps-8 pe-2.5 text-xs text-ink placeholder:text-ink-muted transition-colors focus:border-line-strong focus:outline-none"
-          />
-        </div>
       </div>
 
       {/* Scrollable Middle: Conversations + Quick Sections */}
@@ -236,30 +218,25 @@ export function Sidebar() {
         </div>
       </div>
 
-      {/* Bottom Controls: Theme + Language + Profile Card */}
-      <div className="border-t border-line p-2.5 space-y-2">
-        <div className="flex items-center justify-between gap-2 px-1">
-          <button
-            type="button"
-            onClick={toggleTheme}
-            aria-label={ui.toggleTheme}
-            className="inline-flex items-center gap-2 rounded-lg border border-line bg-elevated px-2.5 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:bg-hover hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
-          >
-            {theme === 'dark' ? (
-              <>
-                <Sun className="h-3.5 w-3.5 text-amber-400" aria-hidden="true" />
-                <span>{ui.themeLight}</span>
-              </>
-            ) : (
-              <>
-                <Moon className="h-3.5 w-3.5 text-ink-secondary" aria-hidden="true" />
-                <span>{ui.themeDark}</span>
-              </>
-            )}
-          </button>
-
-          <LanguageSwitcher />
-        </div>
+      {/* Bottom Controls: Settings Button + Profile Card */}
+      <div className="border-t border-line p-2.5 space-y-1.5">
+        <button
+          type="button"
+          onClick={() => {
+            setMobileDrawerOpen(false);
+            setSettingsOpen(true);
+          }}
+          className="flex w-full items-center justify-between gap-2 rounded-xl px-2.5 py-2 text-sm text-ink-secondary transition-colors hover:bg-sidebar-hover hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
+        >
+          <span className="flex items-center gap-2.5">
+            <Settings className="h-4 w-4 text-ink-muted" aria-hidden="true" />
+            <span className="font-medium">{ui.settingsLabel}</span>
+          </span>
+          <span className="rounded-md border border-line bg-elevated px-2 py-0.5 text-[11px] font-medium text-ink-muted">
+            {theme === 'dark' ? (locale === 'fa' ? 'تیره' : 'Dark') : locale === 'fa' ? 'روشن' : 'Light'}{' '}
+            · {locale === 'fa' ? 'FA' : 'EN'}
+          </span>
+        </button>
 
         <Link
           href="/about"
@@ -269,7 +246,7 @@ export function Sidebar() {
           <img
             src={profileData.avatarUrl}
             alt={tText(profileData.name, locale)}
-            className="h-9 w-9 shrink-0 rounded-full border border-line object-cover"
+            className="h-9 w-9 shrink-0 rounded-full border border-line object-cover object-top"
           />
           <div className="min-w-0 flex-1">
             <div className="truncate text-sm font-medium text-ink">
@@ -360,23 +337,15 @@ export function Sidebar() {
           </a>
         </RailItemWrapper>
 
-        <RailItemWrapper label={theme === 'dark' ? ui.themeLight : ui.themeDark}>
+        <RailItemWrapper label={ui.settingsLabel}>
           <button
             type="button"
-            onClick={toggleTheme}
-            aria-label={ui.toggleTheme}
-            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-sidebar-hover hover:text-ink"
+            onClick={() => setSettingsOpen(true)}
+            aria-label={ui.settingsLabel}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-ink-secondary transition-colors hover:bg-sidebar-hover hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
           >
-            {theme === 'dark' ? (
-              <Sun className="h-4 w-4 text-amber-400" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
+            <Settings className="h-4 w-4" />
           </button>
-        </RailItemWrapper>
-
-        <RailItemWrapper label={ui.languageLabel}>
-          <LanguageSwitcher compact />
         </RailItemWrapper>
 
         <RailItemWrapper label={tText(profileData.name, locale)}>
@@ -388,7 +357,7 @@ export function Sidebar() {
             <img
               src={profileData.avatarUrl}
               alt={tText(profileData.name, locale)}
-              className="h-8 w-8 rounded-full border border-line object-cover"
+              className="h-8 w-8 rounded-full border border-line object-cover object-top"
             />
           </Link>
         </RailItemWrapper>
@@ -422,6 +391,9 @@ export function Sidebar() {
           </div>
         </div>
       )}
+
+      {/* Settings Modal (Theme, Language & Local Chat Data) */}
+      <SettingsModal open={settingsOpen} onClose={() => setSettingsOpen(false)} />
     </>
   );
 }

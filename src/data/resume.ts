@@ -1,4 +1,5 @@
 import type {
+  CertificationItem,
   CertificationNote,
   EducationItem,
   ExperienceItem,
@@ -20,22 +21,22 @@ export const profileData: ProfileData = {
     fa: 'توسعه‌دهنده‌ی Full-Stack',
   },
   headline: {
-    en: 'Full-Stack Developer | React, Next.js, Vue.js, TypeScript & Node.js',
-    fa: 'توسعه‌دهنده‌ی Full-Stack | متخصص React، Next.js، Vue.js، TypeScript و Node.js',
+    en: 'Full-Stack Developer | React · Next.js · Node.js · TypeScript',
+    fa: 'توسعه‌دهنده‌ی Full-Stack | React · Next.js · Node.js · TypeScript',
   },
   welcomeGreeting: {
-    en: "Hi, I'm Hosein Sedaqat. Explore my work, experience, and technical skills through a conversation.",
-    fa: 'سلام، من حسین صداقت هستم. سوابق کاری، پروژه‌ها و مهارت‌های فنی من را از طریق گفت‌وگو بررسی کنید.',
+    en: "Hi, I'm Hosein Sedaqat — Full-Stack Developer.",
+    fa: 'سلام، من حسین صداقت هستم — توسعه‌دهنده‌ی Full-Stack.',
   },
   welcomeSubtitle: {
-    en: 'Full-Stack Developer building practical, data-driven web applications across FinTech, ERP, and modern SaaS interfaces.',
-    fa: 'توسعه‌دهنده‌ی Full-Stack با تمرکز بر ساخت وب‌اپلیکیشن‌های کاربردی، داده‌محور، ابزارهای سازمانی و محصولات مالی.',
+    en: '5+ years building data-driven FinTech & SaaS web applications.',
+    fa: '+۵ سال تجربه ساخت وب‌اپلیکیشن‌های داده‌محور در حوزه فین‌تک و SaaS.',
   },
-  avatarUrl: '/photo/HoseinSedaqat.jpg',
-  secondaryPhotoUrl: '/photo/IMG_2795h-min.jpg',
+  avatarUrl: '/photo/hosein-sedaqat.jpg',
+  secondaryPhotoUrl: '/photo/HoseinSedaqat.jpg',
   location: {
-    en: 'Iran · Open to Remote & International Opportunities',
-    fa: 'ایران · آماده‌ی همکاری ریموت و فرصت‌های بین‌المللی',
+    en: 'Bandar Abbas, Iran · Open to Remote',
+    fa: 'بندرعباس، ایران · آماده همکاری ریموت',
   },
   email: 'hsedaqat1378@gmail.com',
   websiteUrl: 'https://hoseinsedaqat.github.io/',
@@ -44,133 +45,115 @@ export const profileData: ProfileData = {
   stackoverflowUrl: 'https://stackoverflow.com/users/14983011/hosein-sedaqat',
   devtoUrl: 'https://dev.to/hoseinsedaqat',
   mediumUrl: 'https://hoseinsedaqat.medium.com/',
+  spokenLanguages: [
+    {
+      name: { en: 'English', fa: 'انگلیسی' },
+      proficiency: {
+        en: 'Professional working proficiency',
+        fa: 'تسلط حرفه‌ای کاری',
+      },
+    },
+    {
+      name: { en: 'Persian', fa: 'فارسی' },
+      proficiency: {
+        en: 'Native or bilingual proficiency',
+        fa: 'زبان مادری',
+      },
+    },
+  ],
   summaryParagraphs: {
     en: [
-      'I am a Full-Stack Software Developer with strong roots in Frontend Engineering—experienced in building financial payment interfaces at Paystar and architecting data-heavy operational products such as Rahkar ERP, NovaAdmin, and CargoCraft.',
-      'Across both React/Next.js and Vue/Nuxt ecosystems, I focus on strict TypeScript modeling, predictable state management, native bilingual (LTR/RTL) design systems, Node.js REST APIs, and automated testing that keeps business rules reliable as software grows.',
-      'Rather than treating UI as isolated screens, I enjoy connecting user workflows to real domain logic—whether that means balanced double-entry accounting engines, IndexedDB caching strategies, or privacy-first browser extensions.',
+      'Full-Stack Developer with 5 years of experience building data-driven web applications for FinTech and SaaS companies. Built production features used by 4,000+ active users, real-time dashboards tracking 200+ daily transactions, and a complete online invoicing system used in production.',
     ],
     fa: [
-      'من توسعه‌دهنده‌ی نرم‌افزار Full-Stack با پیشینه‌ی عمیق در مهندسی فرانت‌اند هستم؛ با تجربه‌ی توسعه رابط‌های حوزه فین‌تک و پرداخت در شرکت پی‌استار (Paystar) و طراحی و پیاده‌سازی سامانه‌های داده‌محور مانند Rahkar ERP، NovaAdmin و CargoCraft.',
-      'در هر دو اکوسیستم React/Next.js و Vue/Nuxt، تمرکز من بر مدل‌سازی دقیق با TypeScript، مدیریت وضعیت قابل پیش‌بینی، سیستم‌های طراحی دوجهته (RTL/LTR)، توسعه API با Node.js و تست‌نویسی هدفمند برای حفظ پایداری منطق کسب‌وکار است.',
-      'به‌جای نگاه صرفاً ظاهری به صفحات، به پیوند دادن تجربه کاربری با منطق واقعی دامنه علاقه دارم؛ از موتورهای حسابداری دوطرفه و انبارداری در ERP گرفته تا کش محلی IndexedDB و افزونه‌های مرورگر حریم‌خصوصی‌محور.',
+      'توسعه‌دهنده Full-Stack با ۵ سال تجربه در ساخت وب‌اپلیکیشن‌های داده‌محور برای شرکت‌های فین‌تک و SaaS. پیاده‌سازی قابلیت‌های عملیاتی برای +۴٬۰۰۰ کاربر فعال، داشبوردهای لحظه‌ای با رهگیری +۲۰۰ تراکنش روزانه و سامانه کامل صدور فاکتور آنلاین در محیط عملیاتی.',
     ],
   },
   focusAreas: {
     en: [
-      'Frontend Architecture with React, Next.js (App Router), Vue 3, and TypeScript',
-      'Full-Stack Web Development with Node.js HTTP/REST APIs & PostgreSQL',
-      'Data-Driven Dashboards, ERP Workflows, FinTech & Enterprise SaaS Interfaces',
-      'Native Bilingual & Bi-Directional (LTR / Persian RTL) Design Token Systems',
-      'Unit & End-to-End Software Testing (Vitest, Jest, React Testing Library, Vue Test Utils)',
-      'Pragmatic AI-Assisted Engineering for faster prototyping, QA scripts, and documentation',
+      '5 years in FinTech & SaaS web apps',
+      '4,000+ active users served in production',
+      '15,000+ installs on Cafe Bazaar (Mangro)',
+      '16-module automated ERP (Rahkar ERP)',
     ],
     fa: [
-      'معماری فرانت‌اند با React، Next.js (App Router)، Vue 3 و TypeScript',
-      'توسعه‌ی Full-Stack وب با Node.js، طراحی REST API و پایگاه داده PostgreSQL',
-      'طراحی رابط‌های داده‌محور، سامانه‌های ERP، محصولات مالی (FinTech) و ابزارهای SaaS',
-      'سیستم‌های طراحی توکن‌محور با پشتیبانی بومی دوجهته (انگلیسی LTR و فارسی RTL)',
-      'تست نرم‌افزار و کدنویسی قابل نگهداری (Vitest، Jest، Testing Library)',
-      'استفاده‌ی هدفمند و شفاف از ابزارهای هوش مصنوعی برای تسریع توسعه، کنترل کیفیت و مستندسازی',
+      '۵ سال تجربه در فین‌تک و SaaS',
+      '+۴٬۰۰۰ کاربر فعال در محیط عملیاتی',
+      '+۱۵٬۰۰۰ نصب در کافه‌بازار (اپ حسابداری مانگرو)',
+      'سامانه ERP شانزده‌ماژوله با سند خودکار (راهکار)',
     ],
   },
   engineeringValues: [
     {
-      title: {
-        en: 'Domain Integrity & Typed Contracts',
-        fa: 'صحت منطق دامنه و تایپ‌سیفتی',
-      },
+      title: { en: 'Production Impact', fa: 'تأثیر واقعی در محصول' },
       description: {
-        en: 'Separating business calculations from UI rendering and enforcing TypeScript contracts across frontend and backend boundaries.',
-        fa: 'جداسازی موتورهای منطق کسب‌وکار از لایه‌ی نمایش و اعمال قراردادهای دقیق TypeScript بین فرانت‌اند و سرور.',
+        en: '4,000+ active FinTech users, 60%+ ownership of online invoicing, and +40% wallet engagement.',
+        fa: '+۴٬۰۰۰ کاربر فعال فین‌تک، توسعه بیش از ۶۰٪ فاکتور آنلاین و افزایش ۴۰٪ تعامل کیف پول.',
       },
     },
     {
-      title: {
-        en: 'Clarity in Data-Dense Interfaces',
-        fa: 'شفافیت در رابط‌های داده‌محور',
-      },
+      title: { en: 'Full-Stack Ownership', fa: 'مسئولیت‌پذیری Full-Stack' },
       description: {
-        en: 'Turning complex financial tables, multi-step forms, and KPI telemetry into calm, keyboard-accessible workflows.',
-        fa: 'تبدیل جداول مالی پرتراکم، فرم‌های چندمرحله‌ای و شاخص‌های تحلیلی به جریان‌های کاری خوانا، سریع و دسترس‌پذیر.',
-      },
-    },
-    {
-      title: {
-        en: 'Maintainability & Automated Verification',
-        fa: 'نگهداری‌پذیری و کنترل کیفیت خودکار',
-      },
-      description: {
-        en: 'Backing critical state stores, domain formulas, and multi-language layouts with automated unit, smoke, and E2E checks.',
-        fa: 'پشتیبانی از استورها، فرمول‌های مالی و چیدمان‌های چندزبانه با تست‌های واحد، Smoke و End-to-End.',
-      },
-    },
-    {
-      title: {
-        en: 'Honest, User-Respecting Engineering',
-        fa: 'مهندسی شفاف و احترام به کاربر',
-      },
-      description: {
-        en: 'Building privacy-first client tools, offline-capable PWAs, and fast bundles without unnecessary third-party bloat.',
-        fa: 'توسعه‌ی ابزارهای حریم‌خصوصی‌محور، پشتیبانی آفلاین (PWA) و باندل‌های سبک بدون وابستگی‌های اضافی.',
+        en: 'React/Next.js & Vue/Nuxt frontends paired with Node.js, Express/NestJS, GraphQL, and PostgreSQL.',
+        fa: 'تسلط هم‌زمان بر React/Next.js و Vue/Nuxt در کنار Node.js، GraphQL و PostgreSQL.',
       },
     },
   ],
   valuePropositions: [
     {
       title: {
-        en: 'Cross-Ecosystem Frontend Depth (React/Next.js + Vue 3)',
-        fa: 'تسلط عملی بر هر دو اکوسیستم React/Next.js و Vue 3',
+        en: 'Proven FinTech Impact',
+        fa: 'تجربه اثبات‌شده در فین‌تک',
       },
       description: {
-        en: 'Comfortable joining teams running React 19 / Next.js App Router or Vue 3 / Pinia / Vite without ramp-up friction.',
-        fa: 'آمادگی ورود سریع به تیم‌های مبتنی بر React 19 / Next.js یا Vue 3 / Pinia / Vite با تجربه‌ی واقعی در هر دو پشته.',
+        en: 'Shipped features for 4,000+ active users at Paystar, built 60%+ of online invoicing, and boosted wallet engagement by 40%.',
+        fa: 'توسعه قابلیت‌ها برای +۴٬۰۰۰ کاربر فعال در پی‌استار، ساخت +۶۰٪ فاکتور آنلاین و رشد ۴۰٪ تعامل کیف پول.',
       },
       proof: {
-        en: 'Demonstrated across CargoCraft & Datoos (Next.js 15), Tishra Analyzer (React 19), and EchMail / Wasapp (Vue 3 + Pinia).',
-        fa: 'قابل مشاهده در CargoCraft و Datoos (با Next.js 15)، افزونه Tishra (با React 19) و پروژه‌های EchMail و Wasapp (با Vue 3 و Pinia).',
+        en: 'Paystar (May 2022 – May 2025)',
+        fa: 'پی‌استار (۲۰۲۲ – ۲۰۲۵)',
       },
     },
     {
       title: {
-        en: 'Proven FinTech & Enterprise ERP Mindset',
-        fa: 'درک عمیق محصولات مالی (FinTech) و سازمانی (ERP)',
+        en: 'Shipped Products at Scale',
+        fa: 'ساخت محصولات واقعی و پرمخاطب',
       },
       description: {
-        en: 'Hands-on experience with payment gateway interfaces at Paystar and end-to-end financial/operational workflows in Rahkar ERP.',
-        fa: 'تجربه‌ی کار در حوزه‌ی درگاه‌های پرداخت در پی‌استار و پیاده‌سازی چرخه‌ی کامل مالی، انبار، حقوق و تولید در Rahkar ERP.',
+        en: 'Co-built Mangro accounting app (15,000+ Cafe Bazaar installs) and launched 16-module Rahkar ERP.',
+        fa: 'ساخت اپ حسابداری مانگرو (+۱۵٬۰۰۰ نصب در کافه‌بازار) و سامانه ۱۶ ماژوله Rahkar ERP.',
       },
       proof: {
-        en: 'Paystar Front-End Developer role (2022–Present) + Rahkar ERP (16 modules, 78 API routes, 31 PostgreSQL tables).',
-        fa: 'فعالیت در Paystar (۲۰۲۲ تاکنون) و مخزن متن‌باز Rahkar ERP با ۱۶ ماژول، ۷۸ مسیر API و ۳۱ جدول پایگاه داده.',
+        en: 'Mangro & Rahkar ERP (2026)',
+        fa: 'مانگرو و راهکار ERP',
       },
     },
     {
       title: {
-        en: 'Full-Stack Ownership & Clean Architecture',
-        fa: 'مسئولیت‌پذیری Full-Stack و معماری تمیز',
+        en: 'React/Next.js + Vue/Nuxt + Node.js',
+        fa: 'تسلط بر React، Vue و Node.js',
       },
       description: {
-        en: 'Capable of designing database schemas, JWT/RBAC security layers, REST endpoints, calculation engines, and the UI that consumes them.',
-        fa: 'توانایی طراحی اسکیمای دیتابیس، احراز هویت JWT و RBAC، مسیرهای REST API، موتورهای محاسباتی و رابط کاربری متصل به آن.',
+        en: '5 years across TypeScript, React, Next.js, Vue, Nuxt, Node.js, PostgreSQL, and automated testing.',
+        fa: '۵ سال تجربه عملی با TypeScript، React، Next.js، Vue، Nuxt، Node.js و تست خودکار.',
       },
       proof: {
-        en: 'Inspect `server/` and `database/` in Rahkar ERP alongside its 29 unit tests and E2E workflow suite.',
-        fa: 'مستند و قابل بررسی در کدهای سمت سرور، مهاجرت‌های دیتابیس و تست‌های خودکار پروژه‌ی Rahkar ERP.',
+        en: '45 Public GitHub Repos',
+        fa: '۴۵ مخزن عمومی گیت‌هاب',
       },
     },
     {
       title: {
-        en: 'Product Polish, RTL/LTR Mastery & Shipping Discipline',
-        fa: 'توجه به جزئیات محصول، تسلط بر RTL/LTR و تحویل واقعی',
+        en: 'Tested & AI-Ready Workflow',
+        fa: 'تست خودکار و ابزارهای هوش مصنوعی',
       },
       description: {
-        en: 'Ships real artifacts—live demos, a published Mozilla Firefox extension, mobile builds, and this interactive conversational portfolio itself.',
-        fa: 'تمرکز بر تحویل محصول قابل استفاده: دموهای زنده، افزونه‌ی منتشرشده در استور فایرفاکس، اپ موبایل و همین رزومه‌ی تعاملی.',
+        en: 'Unit/E2E testing with Jest, Vitest & Cypress plus practical OpenAI API & LangChain integration.',
+        fa: 'تست‌نویسی با Jest، Vitest و Cypress به همراه تجربه عملی با OpenAI API و LangChain.',
       },
       proof: {
-        en: 'Published Tishra Analyzer on Firefox Add-ons, NovaAdmin 206-page RTL/LTR token system, and Kalamesaz v2.0 Android app.',
-        fa: 'انتشار رسمی Tishra Analyzer در Firefox Add-ons، سیستم ۲۰۶ صفحه‌ای NovaAdmin و نسخه‌ی ۲ بازی کلمه‌ساز.',
+        en: 'Rahkar ERP, EchMail & Tishra',
+        fa: 'پروژه‌های راهکار، EchMail و تیشرا',
       },
     },
   ],
@@ -178,550 +161,355 @@ export const profileData: ProfileData = {
 
 export const experienceItems: ExperienceItem[] = [
   {
-    id: 'paystar',
+    id: 'freelance-fullstack',
     role: {
-      en: 'Front-End Developer',
-      fa: 'توسعه‌دهنده‌ی فرانت‌اند (Front-End Developer)',
+      en: 'Full-Stack Developer',
+      fa: 'توسعه‌دهنده‌ی Full-Stack',
     },
     company: {
-      en: 'Paystar (پی‌استار)',
-      fa: 'پی‌استار (Paystar)',
+      en: 'Freelancer',
+      fa: 'فریلنسر',
     },
-    companyUrl: 'https://paystar.ir',
     location: {
-      en: 'Iran',
-      fa: 'ایران',
+      en: 'Bandar Abbas, Iran · Hybrid',
+      fa: 'بندرعباس، ایران · ترکیبی',
     },
     period: {
-      en: '2022 – Present',
-      fa: '۲۰۲۲ – اکنون',
+      en: 'Jan 2026 – Present',
+      fa: 'ژانویه ۲۰۲۶ – اکنون',
     },
     employmentType: {
-      en: 'Full-Time · FinTech & Payment Services',
-      fa: 'تمام‌وقت · فین‌تک و پرداخت الکترونیک',
+      en: 'Full-time',
+      fa: 'تمام‌وقت',
     },
     domain: {
-      en: 'Online Payment Gateways, Merchant Settlement Workflows, Invoicing & Financial Web Interfaces',
-      fa: 'درگاه‌های پرداخت اینترنتی، تسویه‌حساب هوشمند پذیرندگان، صدور فاکتور آنلاین و پنل‌های مالی',
+      en: 'Accounting & Enterprise ERP Software',
+      fa: 'نرم‌افزارهای حسابداری و ERP',
     },
     summary: {
-      en: 'Contributing to frontend web interfaces at Paystar, an online payment gateway and financial technology provider offering merchant payment pages, online invoicing, smart banking gateway routing, and automated multi-account transaction settlements.',
-      fa: 'توسعه و بهبود رابط‌های کاربری وب در شرکت پی‌استار (ارائه‌دهنده‌ی خدمات درگاه پرداخت اینترنتی، صفحات پرداخت شخصی، فاکتور آنلاین، مسیردهی هوشمند بانکی و تسویه‌ی خودکار تراکنش‌ها).',
+      en: 'Building accounting and automated ERP applications for small and mid-sized businesses.',
+      fa: 'توسعه نرم‌افزارهای حسابداری و سامانه یکپارچه ERP برای کسب‌وکارها.',
     },
     responsibilities: {
       en: [
-        'Developing and maintaining responsive merchant-facing financial interfaces, transaction views, and payment workflows.',
-        'Implementing structured form validation, clear error states, and reliable API integration for sensitive financial operations.',
-        'Collaborating with backend and product teams to translate payment, invoicing, and settlement business rules into intuitive user journeys.',
-        'Ensuring cross-browser compatibility, Persian RTL typographic accuracy, and maintainable component architecture.',
+        'Built Mangro accounting app (team of 3) and published it on Cafe Bazaar with 15,000+ installs.',
+        'Launched Rahkar ERP with 16 modules that automatically creates accounting records from every invoice and stock entry, reducing manual work for small businesses.',
       ],
       fa: [
-        'توسعه و نگهداری رابط‌های کاربری پنل‌های مالی، صفحات پرداخت، گزارش تراکنش‌ها و جریان‌های کاربری پذیرندگان.',
-        'پیاده‌سازی اعتبارسنجی دقیق فرم‌ها، مدیریت خطاها و یکپارچه‌سازی مطمئن با وب‌سرویس‌های مالی و بانکی.',
-        'همکاری نزدیک با تیم‌های بک‌اند و محصول برای تبدیل قوانین تجاری تسویه و صدور فاکتور به تجربه کاربری شفاف و روان.',
-        'حفظ سازگاری در مرورگرها و نمایشگرهای مختلف، دقت تایپوگرافی فارسی (RTL) و ساختار کامپوننت‌های قابل نگهداری.',
+        'ساخت اپلیکیشن حسابداری مانگرو (در تیم ۳ نفره) و انتشار در کافه‌بازار با بیش از ۱۵٬۰۰۰ نصب فعال.',
+        'راه‌اندازی سامانه Rahkar ERP با ۱۶ ماژول که از هر فاکتور و حواله انبار به‌طور خودکار سند حسابداری ثبت می‌کند.',
       ],
     },
     achievements: [
       {
         problem: {
-          en: 'Financial and payment interfaces require high trust, unambiguous transaction statuses, and error-resistant user input.',
-          fa: 'رابط‌های مالی و پرداخت نیازمند اعتماد بالا، نمایش بی‌ابهام وضعیت تراکنش‌ها و جلوگیری از خطای ورودی کاربر هستند.',
+          en: 'Manual double-entry bookkeeping across sales and inventory.',
+          fa: 'ثبت دستی و زمان‌بر اسناد حسابداری از روی فاکتورها.',
         },
         action: {
-          en: 'Built modular, reusable frontend components with strict state handling for loading, validation, and settlement/invoicing flows.',
-          fa: 'ساخت کامپوننت‌های ماژولار و قابل استفاده مجدد با مدیریت دقیق وضعیت‌های بارگذاری، اعتبارسنجی و جریان‌های صدور فاکتور و تسویه.',
+          en: 'Built Mangro (team of 3) and 16-module Rahkar ERP.',
+          fa: 'توسعه اپ مانگرو و سامانه ۱۶ ماژوله راهکار ERP.',
         },
         outcome: {
-          en: 'Delivered consistent, maintainable merchant UI workflows aligned with Paystar’s payment gateway and settlement product suite.',
-          fa: 'ارائه‌ی رابط کاربری یکپارچه، پایدار و قابل توسعه در هماهنگی کامل با سرویس‌های پرداخت و تسویه‌ی پی‌استار.',
+          en: '15,000+ installs on Cafe Bazaar & automated accounting entries.',
+          fa: '+۱۵٬۰۰۰ نصب در کافه‌بازار و اتوماسیون کامل ثبت سند.',
         },
       },
     ],
     technologies: [
-      'JavaScript (ES6+)',
+      'React',
       'TypeScript',
-      'React / Vue Ecosystem',
-      'REST APIs',
-      'HTML5 & CSS3 / SCSS',
-      'Responsive & RTL UI',
+      'Node.js',
+      'GraphQL',
+      'PHP',
+      'Docker',
+      'Unit Testing',
+      'Prompt Engineering',
       'Git',
     ],
   },
   {
-    id: 'independent-fullstack',
+    id: 'paystar',
     role: {
-      en: 'Independent Full-Stack & Open-Source Product Engineer',
-      fa: 'توسعه‌دهنده‌ی مستقل Full-Stack و پروژه‌های محصول‌محور',
+      en: 'Front-End Developer',
+      fa: 'توسعه‌دهنده‌ی فرانت‌اند',
     },
     company: {
-      en: 'Open-Source & Product Engineering (GitHub)',
-      fa: 'توسعه محصولات مستقل و متن‌باز (GitHub)',
+      en: 'Paystar | پی‌استار',
+      fa: 'پی‌استار (Paystar)',
     },
-    companyUrl: 'https://github.com/hoseinsedaqat',
+    companyUrl: 'https://paystar.ir',
     location: {
-      en: 'Remote',
-      fa: 'ریموت',
+      en: 'Tehran, Iran · Remote',
+      fa: 'تهران، ایران · دورکاری',
     },
     period: {
-      en: '2023 – Present',
-      fa: '۲۰۲۳ – اکنون',
+      en: 'May 2022 – May 2025 · 3 yrs 1 mo',
+      fa: 'می ۲۰۲۲ – می ۲۰۲۵ · ۳ سال و ۱ ماه',
     },
     employmentType: {
-      en: 'Product Engineering & Open Source',
-      fa: 'مهندسی محصول و متن‌باز',
+      en: 'Full-time',
+      fa: 'تمام‌وقت',
     },
     domain: {
-      en: 'Enterprise ERP Systems, Admin Design Systems, Browser Extensions & Mobile Apps',
-      fa: 'سامانه‌های ERP، پنل‌های مدیریتی سازمانی، افزونه‌های مرورگر و اپلیکیشن موبایل',
+      en: 'FinTech, Payment Gateway & Online Invoicing',
+      fa: 'فین‌تک، درگاه پرداخت و فاکتور آنلاین',
     },
     summary: {
-      en: 'Expanding from frontend specialization into end-to-end full-stack engineering by designing, testing, and shipping complete multi-module web applications, developer tools, and mobile software.',
-      fa: 'گسترش مسیر حرفه‌ای از تمرکز فرانت‌اند به مهندسی Full-Stack از طریق طراحی معماری، تست‌نویسی و انتشار سامانه‌های چندماژوله، ابزارهای توسعه‌دهندگان و اپلیکیشن موبایل.',
+      en: 'Shipped FinTech payment, wallet, and online invoicing applications for 4,000+ active users.',
+      fa: 'توسعه سامانه فاکتور آنلاین، کیف پول و پنل پرداخت برای بیش از ۴٬۰۰۰ کاربر فعال.',
     },
     responsibilities: {
       en: [
-        'Architected Rahkar ERP from scratch with 16 operational/financial modules, 78 Node.js API endpoints, and dual JSON/PostgreSQL persistence.',
-        'Engineered NovaAdmin (206 generated pages, 10 specialized dashboards, native CSS logical RTL/LTR, and automated DOM QA scripts).',
-        'Developed and published Tishra Analyzer on Mozilla Firefox Add-ons using React 19 and Manifest V3.',
-        'Built Kalamesaz v2.0 (offline Persian Android puzzle game in React Native 0.87 & TypeScript) and Next.js 15 dashboards (CargoCraft, Datoos).',
+        'Shipped production features used by 4,000+ active users in a team of 5.',
+        'Developed over 60% of the online invoicing application that enabled users to generate, send, and manage invoices.',
+        'Redesigned the wallet payment section, increasing user engagement by 40%.',
       ],
       fa: [
-        'معماری و پیاده‌سازی کامل Rahkar ERP با ۱۶ ماژول عملیاتی و مالی، ۷۸ مسیر API در Node.js و پشتیبانی از PostgreSQL و فایل JSON.',
-        'مهندسی سیستم مدیریت NovaAdmin شامل ۲۰۶ صفحه، ۱۰ داشبورد تخصصی، چیدمان دوجهته بومی و اسکریپت‌های تست کیفیت خودکار.',
-        'توسعه و انتشار رسمی افزونه‌ی Tishra Analyzer در مخزن Firefox Add-ons با React 19 و Manifest V3.',
-        'ساخت بازی اندرویدی کلمه‌ساز (React Native 0.87 و TypeScript) و داشبوردهای مبتنی بر Next.js 15 (CargoCraft و Datoos).',
+        'پیاده‌سازی قابلیت‌های عملیاتی مورد استفاده بیش از ۴٬۰۰۰ کاربر فعال در یک تیم ۵ نفره.',
+        'توسعه بیش از ۶۰٪ اپلیکیشن صدور فاکتور آنلاین برای ساخت، ارسال و مدیریت فاکتورها.',
+        'بازطراحی بخش پرداخت کیف پول که منجر به افزایش ۴۰ درصدی تعامل کاربران شد.',
       ],
     },
     achievements: [
       {
         problem: {
-          en: 'Operational modules in small-business software often drift out of sync with accounting ledgers when built without a unified domain core.',
-          fa: 'در نرم‌افزارهای کسب‌وکار، نبود هسته‌ی حسابداری یکپارچه باعث ناهماهنگی بین عملیات فروش/انبار/حقوق و گزارش‌های مالی می‌شود.',
+          en: 'Merchants needed fast online invoicing and smoother wallet checkout.',
+          fa: 'نیاز پذیرندگان به صدور سریع فاکتور و تجربه روان‌تر کیف پول.',
         },
         action: {
-          en: 'Implemented 10 isolated server-side TypeScript engines in Rahkar ERP with automated journal posting, 31 PostgreSQL tables, 29 Vitest unit tests, and E2E scenarios.',
-          fa: 'پیاده‌سازی ۱۰ موتور محاسباتی مستقل TypeScript در Rahkar ERP با صدور خودکار سند حسابداری، ۳۱ جدول PostgreSQL و پوشش تست واحد و E2E.',
+          en: 'Built 60%+ of online invoicing and redesigned wallet payment flows.',
+          fa: 'توسعه +۶۰٪ سامانه فاکتور آنلاین و بازطراحی بخش کیف پول.',
         },
         outcome: {
-          en: 'Shipped a self-hostable ERP plus a zero-backend live browser demo (`rahkar-erp.netlify.app`) built from the same codebase.',
-          fa: 'ارائه‌ی سامانه‌ی ERP قابل نصب روی سرور شخصی به‌همراه دموی زنده‌ی بدون سرور از یک کدبیس واحد.',
-        },
-      },
-      {
-        problem: {
-          en: 'Web developers needed a fast way to inspect SEO health, SERP previews, and security headers without leaking page data to external servers.',
-          fa: 'نیاز توسعه‌دهندگان به ابزار سریع بررسی سئو و امنیت صفحه بدون ارسال اطلاعات سایت به سرویس‌های بیرونی.',
-        },
-        action: {
-          en: 'Built Tishra Analyzer with React 19 and Manifest V3 executing 100% locally in the browser, and documented its architecture on DEV Community & Medium.',
-          fa: 'ساخت افزونه‌ی Tishra Analyzer با اجرای صددرصد محلی در مرورگر و انتشار مستندات فنی ساخت آن در DEV و Medium.',
-        },
-        outcome: {
-          en: 'Publicly listed and downloadable on the official Mozilla Firefox Add-ons store.',
-          fa: 'انتشار رسمی و در دسترس عموم در فروشگاه افزونه‌های مرورگر فایرفاکس.',
+          en: 'Served 4,000+ active users and increased wallet engagement by 40%.',
+          fa: 'خدمت‌رسانی به +۴٬۰۰۰ کاربر فعال و رشد ۴۰٪ تعامل کیف پول.',
         },
       },
     ],
     technologies: [
       'TypeScript',
-      'Next.js 15',
-      'React 19',
-      'Node.js',
-      'PostgreSQL',
-      'Vue 3 & Pinia',
-      'React Native',
-      'Tailwind CSS & SCSS',
-      'Vitest & Jest',
-      'Docker',
+      'Vue.js',
+      'Nuxt.js',
+      'Vuex',
+      'React.js',
+      'Redux',
+      'Laravel',
+      'PHP',
+      'jQuery',
+      'REST API',
+      'MySQL',
+      'Chart.js',
+      'Unit Testing',
+      'Git',
     ],
   },
   {
-    id: 'national-publishing',
+    id: 'npa-oman',
     role: {
       en: 'Front-End Developer',
-      fa: 'توسعه‌دهنده‌ی فرانت‌اند (Front-End Developer)',
+      fa: 'توسعه‌دهنده‌ی فرانت‌اند',
     },
     company: {
-      en: 'National Publishing and Advertising',
-      fa: 'نشر و تبلیغات ملی (National Publishing and Advertising)',
+      en: 'National Publishing & Advertising',
+      fa: 'National Publishing & Advertising',
     },
     location: {
-      en: 'Iran',
-      fa: 'ایران',
+      en: 'Muscat, Oman · Remote',
+      fa: 'مسقط، عمان · دورکاری',
     },
     period: {
-      en: '2022',
-      fa: '۲۰۲۲',
+      en: 'Feb 2022 – Apr 2022 · 3 mos',
+      fa: 'فوریه ۲۰۲۲ – آوریل ۲۰۲۲ · ۳ ماه',
     },
     employmentType: {
-      en: 'Front-End Development',
-      fa: 'توسعه فرانت‌اند',
+      en: 'Contract',
+      fa: 'قراردادی',
     },
     domain: {
-      en: 'Web Publishing, Digital Media & Responsive Client Interfaces',
-      fa: 'وب‌سایت‌های محتوایی، رسانه دیجیتال و رابط‌های کاربری واکنش‌گرا',
+      en: 'Publishing & Event Platform (Muscat, Oman)',
+      fa: 'پلتفرم نشر، تبلیغات و رویداد (عمان)',
     },
     summary: {
-      en: 'Worked as a Front-End Developer delivering responsive web pages, Persian RTL layouts, and interactive client-side components.',
-      fa: 'فعالیت به‌عنوان توسعه‌دهنده‌ی فرانت‌اند در زمینه پیاده‌سازی صفحات وب واکنش‌گرا، چیدمان‌های راست‌چین استاندارد و اجزای تعاملی سمت کاربر.',
+      en: 'Frontend delivery for a publishing and event platform in Muscat, Oman.',
+      fa: 'توسعه رابط کاربری پلتفرم نشر و تبلیغات در مسقط عمان.',
     },
     responsibilities: {
       en: [
-        'Translated visual layouts into clean, semantic HTML5, CSS3/SCSS, and JavaScript/Vue interfaces.',
-        'Optimized page structure for mobile responsiveness, RTL readability, and fast browser rendering.',
+        'Streamlined responsive UI across devices for a publishing and advertising platform in Muscat (including Oman Social Media Week Event).',
+        'Delivered new features in a team of 3 that improved platform functionality.',
       ],
       fa: [
-        'تبدیل طرح‌های بصری به کدهای معنایی HTML5، CSS3/SCSS و کامپوننت‌های تعاملی جاوااسکریپت.',
-        'بهینه‌سازی نمایش در موبایل، خوانایی تایپوگرافی فارسی و سرعت بارگذاری صفحات.',
+        'بهینه‌سازی رابط کاربری واکنش‌گرا در دستگاه‌های مختلف برای پلتفرم نشر و تبلیغات در مسقط (شامل رویداد Oman Social Media Week).',
+        'پیاده‌سازی قابلیت‌های جدید در تیم ۳ نفره جهت ارتقای کارایی پلتفرم.',
       ],
     },
-    achievements: [
-      {
-        problem: {
-          en: 'Content-heavy Persian pages required consistent visual hierarchy across desktop and mobile viewports.',
-          fa: 'صفحات محتوامحور فارسی نیازمند حفظ سلسله‌مراتب بصری و خوانایی در ابعاد مختلف نمایشگر بودند.',
-        },
-        action: {
-          en: 'Standardized reusable layout rules, responsive grids, and RTL-compatible styling patterns.',
-          fa: 'استانداردسازی گریدهای واکنش‌گرا و الگوهای استایل‌دهی سازگار با ساختار راست‌به‌چپ.',
-        },
-        outcome: {
-          en: 'Improved UI consistency and reduced layout regressions across device sizes.',
-          fa: 'افزایش یکپارچگی رابط کاربری و کاهش به‌هم‌ریختگی چیدمان در نمایشگرهای موبایل و دسکتاپ.',
-        },
-      },
+    achievements: [],
+    technologies: [
+      'Vue.js',
+      'Vuex',
+      'JavaScript (ES6+)',
+      'HTML5',
+      'CSS3',
+      'Bootstrap',
+      'Git/GitHub',
     ],
-    technologies: ['HTML5', 'CSS3 / SCSS', 'JavaScript', 'Vue.js', 'Bootstrap', 'Git'],
   },
   {
-    id: 'freelance',
+    id: 'freelance-frontend',
     role: {
-      en: 'Freelance Front-End Developer',
-      fa: 'توسعه‌دهنده‌ی فرانت‌اند (فریلنسر)',
+      en: 'Front-End Developer',
+      fa: 'توسعه‌دهنده‌ی فرانت‌اند',
     },
     company: {
-      en: 'Freelance / Self-Employed',
-      fa: 'فریلنسینگ و پروژه‌های مستقل',
+      en: 'Freelancer',
+      fa: 'فریلنسر',
     },
     location: {
-      en: 'Iran',
-      fa: 'ایران',
+      en: 'Bandar Abbas, Iran · Remote',
+      fa: 'بندرعباس، ایران · دورکاری',
     },
     period: {
-      en: '2020 – 2021',
-      fa: '۲۰۲۰ – ۲۰۲۱',
+      en: 'Jun 2020 – Jan 2022 · 1 yr 8 mos',
+      fa: 'ژوئن ۲۰۲۰ – ژانویه ۲۰۲۲ · ۱ سال و ۸ ماه',
     },
     employmentType: {
-      en: 'Freelance',
-      fa: 'پروژه‌ای / فریلنس',
+      en: 'Full-time',
+      fa: 'تمام‌وقت',
     },
     domain: {
-      en: 'Custom Business Websites, RTL Themes, and Single-Page Web Applications',
-      fa: 'وب‌سایت‌های شرکتی، قالب‌های راست‌چین فارسی و وب‌اپلیکیشن‌های تک‌صفحه‌ای',
+      en: 'Responsive Web Apps & Multilingual RTL UI',
+      fa: 'وب‌اپلیکیشن‌های واکنش‌گرا و رابط‌های چندزبانه',
     },
     summary: {
-      en: 'Delivered custom static and SPA web interfaces for clients and independent web projects while building foundational expertise in Vue.js, React, JavaScript, and Persian RTL theming.',
-      fa: 'طراحی و اجرای وب‌سایت‌های ایستا و تک‌صفحه‌ای (SPA) و قالب‌های راست‌چین فارسی هم‌زمان با تعمیق مهارت در JavaScript، Vue.js و React.',
+      en: 'Delivered 10+ responsive web applications, e-commerce UIs, and corporate websites.',
+      fa: 'توسعه بیش از ۱۰ وب‌اپلیکیشن واکنش‌گرا، مارکت‌پلیس و وب‌سایت شرکتی.',
     },
     responsibilities: {
       en: [
-        'Built responsive corporate websites (e.g., architecture & studio showcases), Persian RTL themes, and progressive web app prototypes.',
-        'Handled end-to-end frontend delivery from layout implementation to static hosting on GitHub Pages and Netlify.',
+        'Developed 10+ responsive web applications and localized UI themes into Persian (Farsi) for multilingual users.',
+        'Created an e-commerce marketplace inspired by Digikala that achieved a Lighthouse performance score of 84/100.',
+        'Designed and launched a corporate website for Mohabbat Studio in a team of 2, improving brand presence and user engagement.',
       ],
       fa: [
-        'پیاده‌سازی وب‌سایت‌های معرفی کسب‌وکار (مانند حوزه‌ی معماری و استودیو)، قالب‌های فارسی RTL و پروتوتایپ‌های PWA.',
-        'تحویل کامل بخش فرانت‌اند از کدنویسی رابط تا استقرار روی GitHub Pages و Netlify.',
+        'توسعه بیش از ۱۰ وب‌اپلیکیشن واکنش‌گرا و بومی‌سازی قالب‌های رابط کاربری به فارسی برای کاربران چندزبانه.',
+        'ساخت مارکت‌پلیس فروشگاهی با الهام از دیجی‌کالا و کسب امتیاز عملکرد ۸۴/۱۰۰ در Lighthouse.',
+        'طراحی و راه‌اندازی وب‌سایت شرکتی استودیو محبت در تیم ۲ نفره و افزایش تعامل کاربران.',
       ],
     },
-    achievements: [
-      {
-        problem: {
-          en: 'Clients and Persian web users needed fast-loading, mobile-friendly RTL websites without heavy CMS overhead.',
-          fa: 'نیاز به وب‌سایت‌های سبک، سریع و راست‌چین بدون سربار سیستم‌های مدیریت محتوای سنگین.',
-        },
-        action: {
-          en: 'Crafted clean HTML/SCSS and Vue.js interfaces with lightweight assets and responsive breakpoints.',
-          fa: 'توسعه‌ی رابط‌های بهینه با HTML/SCSS و Vue.js همراه با ساختار واکنش‌گرا.',
-        },
-        outcome: {
-          en: 'Shipped multiple public web templates and applications—including Architecture-Website (23 GitHub stars) and PWA utilities.',
-          fa: 'انتشار چندین قالب و وب‌اپلیکیشن عمومی از جمله پروژه‌ی Architecture-Website (با ۲۳ ستاره در گیت‌هاب).',
-        },
-      },
+    achievements: [],
+    technologies: [
+      'Vue.js',
+      'Nuxt.js',
+      'Vuex',
+      'JavaScript (ES6+)',
+      'HTML5',
+      'CSS3',
+      'Tailwind CSS',
+      'Bootstrap',
+      'REST API',
+      'Git/GitHub',
     ],
-    technologies: ['JavaScript', 'Vue.js', 'HTML5', 'SCSS / CSS3', 'Bootstrap', 'PWA'],
   },
 ];
 
 export const skillCategories: SkillCategory[] = [
   {
     id: 'frontend',
-    title: {
-      en: 'Frontend Engineering',
-      fa: 'مهندسی فرانت‌اند',
-    },
+    title: { en: 'Frontend', fa: 'فرانت‌اند (Frontend)' },
     description: {
-      en: 'Component architecture, SSR/SPA routing, state management, and accessible bilingual design systems.',
-      fa: 'معماری کامپوننت، مسیریابی SSR و SPA، مدیریت وضعیت و سیستم‌های طراحی دوزبانه و دسترس‌پذیر.',
+      en: 'Modern SPA/SSR frameworks & data visualization',
+      fa: 'فریم‌ورک‌های مدرن وب و مصورسازی داده',
     },
     skills: [
-      {
-        name: 'React 18 / 19',
-        context: {
-          en: 'Component systems, hooks, data dashboards, and Manifest V3 browser extensions.',
-          fa: 'توسعه کامپوننت‌ها، هوک‌ها، داشبوردهای تحلیلی و افزونه مرورگر.',
-        },
-        evidenceSlugs: ['cargocraft-erp', 'tishra-analyzer', 'datoos-crypto-tracker', 'wavezon'],
-      },
-      {
-        name: 'Next.js (App Router)',
-        context: {
-          en: 'Server/Client component boundaries, route handlers, SEO metadata, and multi-module layouts.',
-          fa: 'معماری App Router، تفکیک Server/Client، مسیرهای API و بهینه‌سازی سئو.',
-        },
-        evidenceSlugs: ['cargocraft-erp', 'datoos-crypto-tracker', 'neweet'],
-      },
-      {
-        name: 'TypeScript',
-        context: {
-          en: 'Strict domain modeling, API contracts, calculation engines, and typed React/Vue components.',
-          fa: 'مدل‌سازی دقیق دامنه، قراردادهای API، موتورهای محاسباتی و کامپوننت‌های تایپ‌شده.',
-        },
-        evidenceSlugs: ['rahkar-erp', 'kalamesaz', 'cargocraft-erp', 'wasapp'],
-      },
-      {
-        name: 'Vue 3, Nuxt & Pinia / Vuex',
-        context: {
-          en: 'Modular state stores, persisted client workspaces, `vue-tsc` type checking, and SPA routing.',
-          fa: 'مدیریت وضعیت ماژولار با Pinia و Vuex، بررسی نوع `vue-tsc` و اپلیکیشن‌های تک‌صفحه‌ای.',
-        },
-        evidenceSlugs: ['echmail', 'wasapp', 'echgram', 'echshopy'],
-      },
-      {
-        name: 'Tailwind CSS, SCSS & Design Tokens',
-        context: {
-          en: 'CSS custom properties, native logical RTL/LTR layouts, dark/light theming, and responsive grids.',
-          fa: 'سیستم توکن طراحی، ویژگی‌های منطقی CSS برای RTL/LTR بومی و تم تاریک و روشن.',
-        },
-        evidenceSlugs: ['nova-admin', 'tishra-analyzer', 'cargocraft-erp', 'echmail'],
-      },
-      {
-        name: 'Data Visualization (SVG, Recharts, ApexCharts, Leaflet)',
-        context: {
-          en: 'Custom zero-dependency SVG charts as well as interactive financial & geospatial dashboards.',
-          fa: 'نمودارهای SVG دست‌نویس بدون کتابخانه و مصورسازی تعاملی مالی و مکانی.',
-        },
-        evidenceSlugs: ['rahkar-erp', 'cargocraft-erp', 'nova-admin'],
-      },
-      {
-        name: 'React Native & Cross-Platform (PWA, Electron)',
-        context: {
-          en: 'Gesture-driven Android mobile UI, offline Service Workers, and desktop Electron builds.',
-          fa: 'رابط لمسی موبایل اندروید با React Native، وب‌اپلیکیشن پیش‌رونده (PWA) و خروجی Electron.',
-        },
-        evidenceSlugs: ['kalamesaz', 'rahkar-erp', 'echgram'],
-      },
+      { name: 'React', context: { en: 'Production apps & dashboards', fa: 'اپلیکیشن‌ها و داشبوردهای عملیاتی' }, evidenceSlugs: ['cargocraft-erp', 'tishra-analyzer'] },
+      { name: 'Next.js', context: { en: 'App Router & SSG/SSR', fa: 'معماری App Router و خروجی بهینه' }, evidenceSlugs: ['cargocraft-erp'] },
+      { name: 'Vue.js', context: { en: 'Paystar FinTech & PWAs', fa: 'محصولات فین‌تک پی‌استار و PWA' }, evidenceSlugs: ['echmail', 'echgram'] },
+      { name: 'Nuxt.js', context: { en: 'SSR & modular Vue apps', fa: 'وب‌اپلیکیشن‌های ماژولار Vue' } },
+      { name: 'TypeScript', context: { en: 'Strict end-to-end typing', fa: 'تایپ‌سیفتی کامل در فرانت‌اند و بک‌اند' }, evidenceSlugs: ['rahkar-erp', 'cargocraft-erp'] },
+      { name: 'Tailwind CSS', context: { en: 'Design tokens & RTL/LTR', fa: 'سیستم طراحی و چیدمان دوجهته' }, evidenceSlugs: ['cargocraft-erp', 'tishra-analyzer'] },
+      { name: 'Chart.js', context: { en: 'Financial & KPI charts', fa: 'نمودارهای مالی و تحلیلی' } },
     ],
   },
   {
     id: 'backend',
-    title: {
-      en: 'Backend & API Development',
-      fa: 'بک‌اند و توسعه‌ی API',
-    },
+    title: { en: 'Backend', fa: 'بک‌اند (Backend)' },
     description: {
-      en: 'Server-side TypeScript services, authentication/authorization, and business-rule engines.',
-      fa: 'توسعه‌ی سرویس‌های سمت سرور با TypeScript، امنیت و احراز هویت، و موتورهای منطق کسب‌وکار.',
+      en: 'APIs, business logic & auth',
+      fa: 'سرویس‌های سمت سرور و منطق کسب‌وکار',
     },
     skills: [
-      {
-        name: 'Node.js & REST API Design',
-        context: {
-          en: '78 structured API endpoints in Rahkar ERP using native `node:http` & `tsx`, plus Express/MEVN experience.',
-          fa: 'طراحی و پیاده‌سازی ۷۸ مسیر REST API در Rahkar ERP با Node.js و تجربه‌ی کار با Express.',
-        },
-        evidenceSlugs: ['rahkar-erp'],
-      },
-      {
-        name: 'Authentication, JWT & RBAC Security',
-        context: {
-          en: 'HS256 JWT with refresh-token rotation, `scrypt` hashing, 5-role RBAC permissions, rate limiting, and audit logs.',
-          fa: 'احراز هویت JWT با چرخش توکن، هش `scrypt`، کنترل دسترسی مبتنی بر نقش (RBAC) و ثبت وقایع حسابرسی.',
-        },
-        evidenceSlugs: ['rahkar-erp'],
-      },
-      {
-        name: 'Domain & Financial Calculation Engines',
-        context: {
-          en: 'Double-entry accounting, FIFO/WAC inventory costing, BOM manufacturing, depreciation, and payroll formulas.',
-          fa: 'موتورهای حسابداری دوطرفه، ارزش‌گذاری انبار FIFO/WAC، بهای تمام‌شده تولید و محاسبات حقوق.',
-        },
-        evidenceSlugs: ['rahkar-erp'],
-      },
-      {
-        name: 'Python Automation & Bot Integrations',
-        context: {
-          en: 'Telegram bot services integrating external weather & tide APIs with proxy and deployment configuration.',
-          fa: 'ساخت ربات و اسکریپت‌های پایتون متصل به وب‌سرویس‌های بیرونی (مانند KhamirSportApp).',
-        },
-      },
+      { name: 'Node.js', context: { en: 'REST services & ERP backend', fa: 'بک‌اند ERP و سرویس‌های REST' }, evidenceSlugs: ['rahkar-erp'] },
+      { name: 'Express', context: { en: 'Modular API routing & JWT', fa: 'روتینگ ماژولار و احراز هویت JWT' }, evidenceSlugs: ['rahkar-erp'] },
+      { name: 'NestJS', context: { en: 'Structured TypeScript APIs', fa: 'معماری ساختاریافته بک‌اند' } },
+      { name: 'GraphQL', context: { en: 'Typed query schemas', fa: 'ارتباط داده تایپ‌شده' } },
+      { name: 'REST APIs', context: { en: '78+ ERP endpoints & FinTech APIs', fa: 'طراحی و مصرف APIهای مالی و سازمانی' }, evidenceSlugs: ['rahkar-erp'] },
+      { name: 'PHP / Laravel', context: { en: 'FinTech & accounting integration', fa: 'یکپارچه‌سازی سرویس‌های مالی' } },
     ],
   },
   {
     id: 'databases',
-    title: {
-      en: 'Databases & Client Persistence',
-      fa: 'پایگاه داده و ذخیره‌سازی داده',
-    },
+    title: { en: 'Database', fa: 'پایگاه داده (Database)' },
     description: {
-      en: 'Relational schema modeling alongside resilient offline and browser-side storage layers.',
-      fa: 'طراحی مدل داده‌ی رابطه‌ای در کنار راهکارهای ذخیره‌سازی پایدار و آفلاین سمت کلاینت.',
+      en: 'Relational, document & in-memory stores',
+      fa: 'پایگاه‌های داده رابطه‌ای، سندی و کش',
     },
     skills: [
-      {
-        name: 'PostgreSQL & Relational Modeling',
-        context: {
-          en: '31 tables, 50 foreign keys, SQL migrations, multi-tenant company isolation, and accounting `CHECK` constraints.',
-          fa: 'طراحی ۳۱ جدول با ۵۰ رابطه‌ی کلید خارجی، مهاجرت‌های SQL و جداسازی چندشرکتی در Rahkar ERP.',
-        },
-        evidenceSlugs: ['rahkar-erp'],
-      },
-      {
-        name: 'IndexedDB (Dexie.js) & TanStack Query Caching',
-        context: {
-          en: 'Client-side market data caching paired with stale-while-revalidate API synchronization.',
-          fa: 'کش پایدار مرورگر با IndexedDB و همگام‌سازی داده‌های سرور با React Query.',
-        },
-        evidenceSlugs: ['datoos-crypto-tracker'],
-      },
-      {
-        name: 'Atomic JSON Stores, LocalStorage & AsyncStorage',
-        context: {
-          en: 'Zero-DB server file persistence, persisted Pinia/chat stores, and offline mobile game progression.',
-          fa: 'ذخیره‌سازی اتمیک فایل در سرور، ماندگاری مکالمات و وضعیت برنامه در مرورگر و موبایل.',
-        },
-        evidenceSlugs: ['rahkar-erp', 'kalamesaz', 'echmail'],
-      },
-      {
-        name: 'MongoDB & Firebase (Prior Stack Experience)',
-        context: {
-          en: 'Used in earlier full-stack MEVN blog/task applications and Vuex authentication prototypes.',
-          fa: 'تجربه‌ی استفاده در پروژه‌های Full-Stack مبتنی بر MEVN و احراز هویت Firebase.',
-        },
-      },
+      { name: 'PostgreSQL', context: { en: '31-table ERP relational schema', fa: 'طراحی ۳۱ جدول رابطه‌ای در راهکار ERP' }, evidenceSlugs: ['rahkar-erp'] },
+      { name: 'MongoDB', context: { en: 'Document data modeling', fa: 'مدل‌سازی داده‌های NoSQL' } },
+      { name: 'Redis', context: { en: 'Caching & session speedups', fa: 'کش و مدیریت نشست‌ها' } },
+      { name: 'MySQL', context: { en: 'Production financial records', fa: 'داده‌های عملیاتی در پی‌استار' } },
     ],
   },
   {
     id: 'testing',
-    title: {
-      en: 'Software Testing & Quality Assurance',
-      fa: 'تست نرم‌افزار و تضمین کیفیت',
-    },
+    title: { en: 'Testing', fa: 'تست و کیفیت (Testing)' },
     description: {
-      en: 'Protecting business logic, UI components, links, and localization from regressions.',
-      fa: 'پوشش منطق محاسباتی، کامپوننت‌های رابط، لینک‌ها و ترجمه‌ها در برابر خطاهای رگرسیون.',
+      en: 'Unit, component & E2E verification',
+      fa: 'تست واحد، کامپوننت و End-to-End',
     },
     skills: [
-      {
-        name: 'Vitest & End-to-End Scenario Suites',
-        context: {
-          en: '29 unit tests covering financial/security engines + automated E2E scenarios with `pg-mem` and `jsdom`.',
-          fa: '۲۹ تست واحد برای موتورهای مالی و امنیتی به‌همراه سناریوهای E2E در Rahkar ERP.',
-        },
-        evidenceSlugs: ['rahkar-erp'],
-      },
-      {
-        name: 'Jest, React Testing Library & Vue Test Utils',
-        context: {
-          en: 'Unit and component interaction tests across Vue 3 stores/views, Next.js apps, and React Native logic.',
-          fa: 'تست واحد و تعامل کامپوننت‌ها در استورها و نماهای Vue 3، اپلیکیشن‌های Next.js و React Native.',
-        },
-        evidenceSlugs: ['echmail', 'datoos-crypto-tracker', 'kalamesaz'],
-      },
-      {
-        name: 'Automated Build-Time & DOM QA Tooling',
-        context: {
-          en: 'Custom Node scripts verifying broken links, i18n keys, responsive breakpoints, and game level solvability.',
-          fa: 'اسکریپت‌های اختصاصی بررسی لینک‌ها، کلیدهای ترجمه، واکنش‌گرایی و اعتبارسنجی داده‌های مرحله‌ها.',
-        },
-        evidenceSlugs: ['nova-admin', 'kalamesaz'],
-      },
-    ],
-  },
-  {
-    id: 'tools',
-    title: {
-      en: 'Tools, Build Systems & Workflow',
-      fa: 'ابزارها، بیلد و گردش کار مهندسی',
-    },
-    description: {
-      en: 'Modern frontend/full-stack build pipelines, containerization, and deployment.',
-      fa: 'ابزارهای ساخت مدرن، کانتینرسازی، کنترل نسخه و استقرار مستمر.',
-    },
-    skills: [
-      {
-        name: 'Vite, Webpack & Next.js Turbopack',
-        context: {
-          en: 'Fast production bundling, multi-page static generation, and browser extension packaging.',
-          fa: 'باندلینگ بهینه، تولید صفحات ایستا و بسته‌بندی افزونه‌های مرورگر.',
-        },
-        evidenceSlugs: ['rahkar-erp', 'nova-admin', 'tishra-analyzer'],
-      },
-      {
-        name: 'Docker, Git, GitHub, Vercel & Netlify',
-        context: {
-          en: 'Multi-stage `Dockerfile` + `docker-compose`, CI/CD previews, and production static/serverless deployments.',
-          fa: 'داکرایز چندمرحله‌ای با HEALTHCHECK، مدیریت مخازن گیت و استقرار روی Vercel و Netlify.',
-        },
-        evidenceSlugs: ['rahkar-erp', 'cargocraft-erp'],
-      },
-      {
-        name: 'Technical SEO, Web Security & Accessibility',
-        context: {
-          en: 'SERP metadata, OpenGraph, CSP/SSL headers, semantic HTML, keyboard navigation, and `prefers-reduced-motion`.',
-          fa: 'بهینه‌سازی متاتگ‌ها و OpenGraph، هدرهای امنیتی CSP/SSL، دسترس‌پذیری کیبورد و کاهش حرکت.',
-        },
-        evidenceSlugs: ['tishra-analyzer', 'nova-admin'],
-      },
+      { name: 'Jest', context: { en: 'Unit & store test suites', fa: 'تست واحد و استورها' }, evidenceSlugs: ['echmail', 'kalamesaz'] },
+      { name: 'Vitest', context: { en: 'Fast TypeScript domain tests', fa: 'تست سریع موتورهای محاسباتی' }, evidenceSlugs: ['rahkar-erp'] },
+      { name: 'React Testing Library', context: { en: 'Interactive UI component tests', fa: 'تست تعاملات کامپوننت‌های رابط کاربری' } },
+      { name: 'Cypress', context: { en: 'End-to-end user flow testing', fa: 'تست End-to-End سناریوهای کاربر' } },
     ],
   },
   {
     id: 'ai',
-    title: {
-      en: 'AI-Assisted Software Engineering',
-      fa: 'مهندسی نرم‌افزار به کمک هوش مصنوعی',
-    },
+    title: { en: 'AI Automation', fa: 'اتوماسیون هوش مصنوعی (AI)' },
     description: {
-      en: 'Practical, transparent use of AI coding assistants and conversational UX patterns where documented.',
-      fa: 'بهره‌گیری عملی، هدفمند و شفاف از ابزارهای هوش مصنوعی در چرخه‌ی توسعه و طراحی رابط‌های گفت‌وگومحور.',
+      en: 'LLM workflows & intelligent features',
+      fa: 'یکپارچه‌سازی مدل‌های زبانی در محصول',
     },
     skills: [
-      {
-        name: 'AI-Assisted Prototyping, Refactoring & QA',
-        context: {
-          en: 'Using tools like GitHub Copilot and Gemini to accelerate UI scaffolding, edge-case test generation, and bilingual docs while verifying every architectural decision in code.',
-          fa: 'استفاده از ابزارهایی مانند GitHub Copilot و Gemini برای تسریع نمونه‌سازی رابط، نوشتن تست‌ها و مستندسازی دوزبانه با بازبینی دقیق مهندسی.',
-        },
-        evidenceSlugs: ['tishra-analyzer', 'cargocraft-erp'],
-      },
-      {
-        name: 'Conversational UI & Server-Side LLM Architecture',
-        context: {
-          en: 'Designing ChatGPT-grade conversational interfaces backed by deterministic knowledge bases and secure server-only API routes.',
-          fa: 'طراحی رابط‌های کاربری گفت‌وگومحور متصل به پایگاه دانش ساختاریافته و مسیرهای امن سمت سرور بدون افشای کلید API.',
-        },
-      },
+      { name: 'Prompt Engineering', context: { en: 'Structured, grounded prompts', fa: 'طراحی پرامپت‌های دقیق و ساختاریافته' } },
+      { name: 'OpenAI API', context: { en: 'Assistant & workflow integration', fa: 'اتصال API مدل‌های هوش مصنوعی' } },
+      { name: 'LangChain', context: { en: 'Chained AI pipelines', fa: 'ساخت زنجیره‌های پردازش هوشمند' } },
+    ],
+  },
+  {
+    id: 'tools',
+    title: { en: 'Infrastructure & Tools', fa: 'زیرساخت و ابزارها (DevOps)' },
+    description: {
+      en: 'Containers, CI/CD & cloud deployment',
+      fa: 'کانتینر، استقرار خودکار و ابزارهای مهندسی',
+    },
+    skills: [
+      { name: 'Docker', context: { en: 'Containerized local & prod setups', fa: 'کانتینرسازی محیط توسعه و محصول' } },
+      { name: 'Git & GitHub Actions', context: { en: 'CI/CD workflows & version control', fa: 'کنترل نسخه و پایپ‌لاین CI/CD' } },
+      { name: 'Vercel & Netlify', context: { en: 'Frontend & preview deployments', fa: 'استقرار سریع وب‌اپلیکیشن‌ها' } },
+      { name: 'Postman', context: { en: 'API testing & contract checks', fa: 'تست و مستندسازی API' } },
     ],
   },
 ];
 
 export const educationItems: EducationItem[] = [
   {
-    id: 'usb-bachelor',
+    id: 'usb-bsc',
     degree: {
-      en: "Bachelor's Degree",
-      fa: 'مدرک کارشناسی (Bachelor’s Degree)',
+      en: "Bachelor's degree, Industrial Engineering",
+      fa: 'کارشناسی مهندسی صنایع',
     },
     institution: {
       en: 'University of Sistan and Baluchestan',
@@ -731,12 +519,79 @@ export const educationItems: EducationItem[] = [
       en: 'Iran',
       fa: 'ایران',
     },
+    period: {
+      en: 'Jan 2018 – Sep 2023',
+      fa: 'ژانویه ۲۰۱۸ – سپتامبر ۲۰۲۳',
+    },
     note: {
-      en: 'Academic foundation complemented by continuous hands-on software engineering across web, financial systems, and open-source product development.',
-      fa: 'پیشینه‌ی دانشگاهی همراه با یادگیری مستمر و اجرای عملی پروژه‌های مهندسی نرم‌افزار، سیستم‌های مالی و محصولات متن‌باز.',
+      en: 'Systems analysis, process optimization, and data-driven engineering.',
+      fa: 'تحلیل سیستم‌ها، بهینه‌سازی فرآیندها و مهندسی داده‌محور.',
     },
   },
 ];
+
+export const certifications: CertificationItem[] = [
+  {
+    id: 'sololearn-react-redux',
+    title: 'React + Redux Tutorial Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Aug 2022', fa: 'آگوست ۲۰۲۲' },
+    credentialId: 'CT-BVO7P03Z',
+    url: 'https://www.sololearn.com/certificates/CT-BVO7P03Z',
+  },
+  {
+    id: 'sololearn-rwd',
+    title: 'Responsive Web Design Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Apr 2021', fa: 'آوریل ۲۰۲۱' },
+    credentialId: '1162-21427246',
+    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+  },
+  {
+    id: 'sololearn-jquery',
+    title: 'JQuery Tutorial Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Apr 2021', fa: 'آوریل ۲۰۲۱' },
+    credentialId: '1082-21427246',
+    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+  },
+  {
+    id: 'sololearn-javascript',
+    title: 'JavaScript Tutorial Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
+    credentialId: '21427246-1024',
+    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+  },
+  {
+    id: 'sololearn-css',
+    title: 'CSS Fundamentals Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
+    credentialId: '1023-21427246',
+    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+  },
+  {
+    id: 'sololearn-html',
+    title: 'HTML Fundamentals Course',
+    issuer: 'Sololearn',
+    issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
+    credentialId: '1014-21427246',
+    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+  },
+];
+
+export const certificationNote: CertificationNote = {
+  title: {
+    en: 'Licenses & Certifications',
+    fa: 'گواهینامه‌های تخصصی',
+  },
+  description: {
+    en: 'Verified course credentials on LinkedIn.',
+    fa: 'گواهینامه‌های آموزشی ثبت‌شده در لینکدین.',
+  },
+  verificationUrl: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+};
 
 export const publications: PublicationItem[] = [
   {
@@ -746,10 +601,10 @@ export const publications: PublicationItem[] = [
     date: 'Feb 2026',
     url: 'https://dev.to/hoseinsedaqat/building-tishra-analyzer-how-i-created-a-privacy-first-seo-security-extension-16j3',
     summary: {
-      en: 'Technical deep-dive into building a 100% local Manifest V3 browser extension with React and Tailwind CSS for instant SEO scoring and security header audits.',
-      fa: 'بررسی فنی طراحی و ساخت افزونه‌ی مرورگر Manifest V3 با React و اجرای کاملاً محلی برای امتیازدهی سئو و ممیزی امنیتی.',
+      en: 'How I built a 100% local Manifest V3 SEO & security audit browser extension with React.',
+      fa: 'نحوه ساخت افزونه مرورگر بررسی سئو و امنیت به صورت کاملاً محلی با React و Manifest V3.',
     },
-    tags: ['React', 'Manifest V3', 'SEO', 'Open Source'],
+    tags: ['React', 'Manifest V3', 'SEO'],
   },
   {
     id: 'developer-efficiency-article',
@@ -758,37 +613,14 @@ export const publications: PublicationItem[] = [
     date: 'Aug 2025',
     url: 'https://dev.to/hoseinsedaqat/how-can-we-be-more-efficient-as-developers-51he',
     summary: {
-      en: 'Practical reflections on sustainable engineering focus, preventing developer burnout, structured work sessions, and long-term consistency.',
-      fa: 'نگاهی کاربردی به حفظ تمرکز مهندسی، پیشگیری از فرسودگی شغلی توسعه‌دهندگان و استمرار در یادگیری.',
+      en: 'Practical habits for deep engineering focus, sustainable energy, and preventing burnout.',
+      fa: 'راهکارهای کاربردی برای تمرکز عمیق برنامه‌نویسی و جلوگیری از فرسودگی شغلی.',
     },
-    tags: ['Productivity', 'Software Engineering', 'Career'],
+    tags: ['Productivity', 'Engineering'],
   },
 ];
 
-export const certificationNote: CertificationNote = {
-  title: {
-    en: 'Verified Credentials & Coursework on LinkedIn',
-    fa: 'گواهینامه‌ها و مدارک تکمیلی در لینکدین',
-  },
-  description: {
-    en: 'To keep this portfolio strictly factual and free of unverified credential IDs, up-to-date licenses, course certificates, and endorsements can be reviewed directly on my LinkedIn profile.',
-    fa: 'در راستای حفظ صداقت محتوایی و پرهیز از درج شناسه‌های تاییدنشده، فهرست به‌روز گواهینامه‌های آموزشی و مهارت‌های تاییدشده مستقیماً در پروفایل لینکدین من قابل مشاهده است.',
-  },
-  verificationUrl: 'https://www.linkedin.com/in/hoseinsedaqat/',
-};
-
 export const externalLinks: ExternalLinkItem[] = [
-  {
-    id: 'github',
-    label: { en: 'GitHub', fa: 'گیت‌هاب (GitHub)' },
-    url: 'https://github.com/hoseinsedaqat',
-    handle: '@hoseinsedaqat',
-    category: 'primary',
-    description: {
-      en: '45 public repositories including Rahkar ERP, NovaAdmin, CargoCraft, Tishra Analyzer, and Kalamesaz.',
-      fa: '۴۵ مخزن عمومی شامل Rahkar ERP، NovaAdmin، CargoCraft، Tishra Analyzer و کلمه‌ساز.',
-    },
-  },
   {
     id: 'linkedin',
     label: { en: 'LinkedIn', fa: 'لینکدین (LinkedIn)' },
@@ -796,8 +628,19 @@ export const externalLinks: ExternalLinkItem[] = [
     handle: 'in/hoseinsedaqat',
     category: 'primary',
     description: {
-      en: 'Professional network, employment timeline, recommendations, and direct recruiter messaging.',
-      fa: 'شبکه‌ی حرفه‌ای، سوابق شغلی، گواهینامه‌ها و ارتباط مستقیم کاری.',
+      en: '500+ connections · Full experience, 6 certifications & direct messaging.',
+      fa: '+۵۰۰ ارتباط حرفه‌ای · سوابق کامل، ۶ گواهینامه و پیام مستقیم.',
+    },
+  },
+  {
+    id: 'github',
+    label: { en: 'GitHub', fa: 'گیت‌هاب (GitHub)' },
+    url: 'https://github.com/hoseinsedaqat',
+    handle: '@hoseinsedaqat',
+    category: 'primary',
+    description: {
+      en: '45 public repositories including Rahkar ERP, CargoCraft, NovaAdmin & Tishra.',
+      fa: '۴۵ مخزن عمومی شامل Rahkar ERP، CargoCraft، NovaAdmin و Tishra.',
     },
   },
   {
@@ -807,8 +650,8 @@ export const externalLinks: ExternalLinkItem[] = [
     handle: '57k+ reached',
     category: 'community',
     description: {
-      en: 'Member for 5+ years contributing answers around Node.js, Express, React, and SSL.',
-      fa: 'بیش از ۵ سال عضویت با بیش از ۵۷ هزار بازدید از پاسخ‌های فنی در حوزه Node.js، Express و React.',
+      en: '5+ years answering Node.js, React, Express & SSL questions.',
+      fa: '+۵ سال فعالیت فنی با بیش از ۵۷ هزار بازدید از پاسخ‌ها.',
     },
   },
   {
@@ -818,8 +661,8 @@ export const externalLinks: ExternalLinkItem[] = [
     handle: '@hoseinsedaqat',
     category: 'writing',
     description: {
-      en: 'Four-Year Club member sharing articles on browser extension engineering and developer workflow.',
-      fa: 'انتشار مقالات فنی درباره ساخت افزونه مرورگر و بهره‌وری مهندسی نرم‌افزار.',
+      en: 'Technical articles on browser extensions and developer productivity.',
+      fa: 'مقالات فنی درباره ساخت افزونه مرورگر و بهره‌وری برنامه‌نویسی.',
     },
   },
   {
@@ -829,8 +672,8 @@ export const externalLinks: ExternalLinkItem[] = [
     handle: 'hoseinsedaqat.medium.com',
     category: 'writing',
     description: {
-      en: 'Personal blog and software development essays.',
-      fa: 'وبلاگ شخصی و یادداشت‌های توسعه نرم‌افزار.',
+      en: 'Software engineering essays and tutorials.',
+      fa: 'یادداشت‌ها و آموزش‌های مهندسی نرم‌افزار.',
     },
   },
 ];

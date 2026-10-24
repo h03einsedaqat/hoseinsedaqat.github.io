@@ -3,9 +3,10 @@ import React from 'react';
 import { SkillsPageContent } from '@/app/skills/SkillsPageContent';
 
 export const metadata: Metadata = {
-  title: 'Technical Skills',
+  title: 'Skills',
   description:
-    'Evidence-backed frontend, backend, database, testing, and tooling skills of Hosein Sedaqat across React, Next.js, Vue 3, TypeScript, and Node.js.',
+    'Technical skills of Hosein Sedaqat (حسین صداقت) — React, Next.js, Vue.js, Nuxt.js, TypeScript, Node.js, PostgreSQL, Jest, Vitest, Docker, and AI Automation. مهارت‌های فنی حسین صداقت.',
+  alternates: { canonical: '/skills/' },
 };
 
 export default function SkillsPage() {

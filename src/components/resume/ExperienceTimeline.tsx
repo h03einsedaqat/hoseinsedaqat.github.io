@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Briefcase, Calendar, ExternalLink, MapPin } from 'lucide-react';
+import { TechIcon } from '@/components/resume/TechIcon';
 import { useLanguage } from '@/context/LanguageContext';
 import { experienceItems } from '@/data/resume';
 import { cn, tList, tText } from '@/lib/utils';
@@ -12,26 +13,26 @@ interface ExperienceTimelineProps {
 }
 
 export function ExperienceTimeline({ ids, compact = false }: ExperienceTimelineProps) {
-  const { locale, ui } = useLanguage();
+  const { locale } = useLanguage();
 
   const items = ids?.length
     ? experienceItems.filter((item) => ids.includes(item.id))
     : experienceItems;
 
   return (
-    <div className={cn('space-y-4', !compact && 'space-y-6')}>
+    <div className={cn('space-y-3', !compact && 'space-y-4')}>
       {items.map((exp) => (
         <article
           key={exp.id}
           className={cn(
             'relative rounded-2xl border border-line bg-elevated transition-colors hover:border-line-strong',
-            compact ? 'p-4' : 'p-5 sm:p-6'
+            compact ? 'p-4' : 'p-5'
           )}
         >
           {/* Role, Company & Period */}
           <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
             <div>
-              <h3 className="text-base font-semibold text-ink sm:text-lg">
+              <h3 className="text-base font-semibold text-ink">
                 {tText(exp.role, locale)}
               </h3>
               <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-ink-secondary">
@@ -71,67 +72,26 @@ export function ExperienceTimeline({ ids, compact = false }: ExperienceTimelineP
             </div>
           </div>
 
-          {/* Domain & Summary */}
-          <p className="mt-3 text-sm leading-relaxed text-ink-secondary">
-            {tText(exp.summary, locale)}
-          </p>
-
-          {/* Responsibilities */}
-          <div className="mt-4">
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
-              {ui.responsibilitiesLabel}
-            </h4>
-            <ul className="mt-2 space-y-1.5 text-sm leading-relaxed text-ink-secondary">
-              {tList(exp.responsibilities, locale)
-                .slice(0, compact ? 3 : undefined)
-                .map((resp, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ink-muted" />
-                    <span>{resp}</span>
-                  </li>
-                ))}
-            </ul>
-          </div>
-
-          {/* Problem -> Action -> Verifiable Result */}
-          {exp.achievements.length > 0 && (
-            <div className="mt-4 space-y-2.5">
-              <h4 className="text-xs font-semibold uppercase tracking-wide text-ink-muted">
-                {ui.achievementsLabel}
-              </h4>
-              <div className="grid grid-cols-1 gap-2.5">
-                {exp.achievements.slice(0, compact ? 1 : undefined).map((ach, idx) => (
-                  <div
-                    key={idx}
-                    className="grid grid-cols-1 gap-2 rounded-xl border border-line bg-canvas/60 p-3.5 text-xs leading-relaxed md:grid-cols-3 md:gap-3"
-                  >
-                    <div>
-                      <div className="font-semibold text-ink">{ui.problemLabel}</div>
-                      <p className="mt-1 text-ink-secondary">{tText(ach.problem, locale)}</p>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-ink">{ui.actionLabel}</div>
-                      <p className="mt-1 text-ink-secondary">{tText(ach.action, locale)}</p>
-                    </div>
-                    <div>
-                      <div className="font-semibold text-accent">{ui.outcomeLabel}</div>
-                      <p className="mt-1 text-ink-secondary">{tText(ach.outcome, locale)}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          {/* Concise Impact Bullets */}
+          <ul className="mt-3.5 space-y-1.5 text-xs leading-relaxed text-ink-secondary sm:text-sm">
+            {tList(exp.responsibilities, locale).map((resp, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                <span>{resp}</span>
+              </li>
+            ))}
+          </ul>
 
           {/* Technologies */}
-          <div className="mt-4 flex flex-wrap gap-1.5 border-t border-line pt-3">
+          <div className="mt-3.5 flex flex-wrap gap-1.5 border-t border-line pt-3">
             {exp.technologies.map((tech) => (
               <span
                 key={tech}
                 dir="ltr"
-                className="rounded-md border border-line bg-canvas/80 px-2 py-0.5 text-[11px] font-medium text-ink-secondary"
+                className="inline-flex items-center gap-1.5 rounded-md border border-line bg-canvas/80 px-2 py-0.5 text-[11px] font-medium text-ink-secondary"
               >
-                {tech}
+                <TechIcon name={tech} className="h-3 w-3" />
+                <span>{tech}</span>
               </span>
             ))}
           </div>

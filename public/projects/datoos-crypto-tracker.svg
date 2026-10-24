@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#080c14"/>
+  <rect x="72" y="52" width="1136" height="616" rx="22" fill="#0f1623" stroke="#1f2d47" stroke-width="2"/>
+  <text x="116" y="110" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="700">Datoos Crypto Tracker</text>
+  <text x="116" y="138" fill="#64748b" font-family="system-ui, sans-serif" font-size="14">Next.js 15 · TanStack Query · Dexie.js IndexedDB Offline Cache</text>
+  <rect x="116" y="176" width="1048" height="86" rx="14" fill="#151f32" stroke="#243452"/>
+  <circle cx="162" cy="219" r="20" fill="#f59e0b"/>
+  <text x="200" y="214" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Bitcoin (BTC)</text>
+  <text x="200" y="236" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Cached in IndexedDB · Real-time Sync</text>
+  <text x="1124" y="225" text-anchor="end" fill="#10b981" font-family="system-ui, sans-serif" font-size="20" font-weight="700">+4.82%</text>
+
+  <rect x="116" y="282" width="1048" height="86" rx="14" fill="#151f32" stroke="#243452"/>
+  <circle cx="162" cy="325" r="20" fill="#6366f1"/>
+  <text x="200" y="320" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Ethereum (ETH)</text>
+  <text x="200" y="342" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Cached in IndexedDB · Real-time Sync</text>
+  <text x="1124" y="331" text-anchor="end" fill="#10b981" font-family="system-ui, sans-serif" font-size="20" font-weight="700">+3.19%</text>
+
+  <rect x="116" y="388" width="1048" height="86" rx="14" fill="#151f32" stroke="#243452"/>
+  <circle cx="162" cy="431" r="20" fill="#14b8a6"/>
+  <text x="200" y="426" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="18" font-weight="700">Solana (SOL)</text>
+  <text x="200" y="448" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="13">Cached in IndexedDB · Real-time Sync</text>
+  <text x="1124" y="437" text-anchor="end" fill="#10b981" font-family="system-ui, sans-serif" font-size="20" font-weight="700">+6.45%</text>
+
+  <rect x="116" y="494" width="1048" height="128" rx="14" fill="#131c2e" stroke="#1e2d47"/>
+  <polyline fill="none" stroke="#38bdf8" stroke-width="3.5" points="150,590 270,565 390,575 510,540 630,552 750,524 870,532 990,510 1120,504"/>
+</svg>
