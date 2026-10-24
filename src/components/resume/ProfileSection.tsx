@@ -2,10 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { CheckCircle2, Download, FileText, MapPin, MessageSquare } from 'lucide-react';
+import { CheckCircle2, Download, FileText, Globe, MapPin, MessageSquare } from 'lucide-react';
+import { TechIcon } from '@/components/resume/TechIcon';
 import { useChat } from '@/context/ChatContext';
 import { useLanguage } from '@/context/LanguageContext';
-import { profileData } from '@/data/resume';
+import { profileData, skillCategories } from '@/data/resume';
 import { tList, tText } from '@/lib/utils';
 
 export function ProfileSection() {
@@ -13,14 +14,14 @@ export function ProfileSection() {
   const { askFromAnywhere } = useChat();
 
   return (
-    <div className="mx-auto w-full max-w-4xl space-y-6 px-4 py-6 sm:px-6 sm:py-8">
+    <div className="mx-auto w-full max-w-4xl space-y-5 px-4 py-6 sm:px-6 sm:py-8">
       {/* Hero Card */}
       <section className="rounded-2xl border border-line bg-elevated p-5 sm:p-7">
         <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center">
           <img
             src={profileData.avatarUrl}
-            alt={tText(profileData.name, locale)}
-            className="h-20 w-20 shrink-0 rounded-2xl border border-line-strong object-cover shadow-subtle"
+            alt="Hosein Sedaqat (حسین صداقت) — Full-Stack Developer"
+            className="h-24 w-24 shrink-0 rounded-2xl border border-line-strong object-cover object-top shadow-subtle"
           />
 
           <div className="min-w-0 flex-1 space-y-1.5">
@@ -37,12 +38,23 @@ export function ProfileSection() {
           </div>
         </div>
 
-        {/* Summary Paragraphs */}
-        <div className="mt-5 space-y-3 border-t border-line pt-5 text-sm leading-relaxed text-ink-secondary">
-          {tList(profileData.summaryParagraphs, locale).map((p, idx) => (
-            <p key={idx}>{p}</p>
+        {/* Concise LinkedIn Summary */}
+        <p className="mt-5 border-t border-line pt-4 text-sm leading-relaxed text-ink-secondary">
+          {tList(profileData.summaryParagraphs, locale)[0]}
+        </p>
+
+        {/* Key Highlights */}
+        <ul className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {tList(profileData.focusAreas, locale).map((item, idx) => (
+            <li
+              key={idx}
+              className="flex items-center gap-2 rounded-xl border border-line bg-canvas/70 px-3 py-2 text-xs font-medium text-ink"
+            >
+              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
           ))}
-        </div>
+        </ul>
 
         {/* Quick Actions */}
         <div className="mt-5 flex flex-wrap items-center gap-2.5">
@@ -79,40 +91,46 @@ export function ProfileSection() {
         </div>
       </section>
 
-      {/* Core Specializations */}
-      <section className="rounded-2xl border border-line bg-elevated p-5 sm:p-6">
-        <h2 className="text-base font-semibold text-ink">{ui.focusAreasLabel}</h2>
-        <ul className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-          {tList(profileData.focusAreas, locale).map((item, idx) => (
-            <li
-              key={idx}
-              className="flex items-start gap-2.5 rounded-xl border border-line bg-canvas/60 p-3 text-xs leading-relaxed text-ink-secondary"
+      {/* Compact Core Stack Snapshot */}
+      <section className="rounded-2xl border border-line bg-elevated p-5 space-y-2.5">
+        <h2 className="text-sm font-semibold text-ink">{ui.navSkills}</h2>
+        <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+          {skillCategories.map((cat) => (
+            <div
+              key={cat.id}
+              className="rounded-xl border border-line bg-canvas/70 p-3 text-xs space-y-2"
             >
-              <CheckCircle2
-                className="mt-0.5 h-4 w-4 shrink-0 text-accent"
-                aria-hidden="true"
-              />
-              <span>{item}</span>
-            </li>
+              <div className="font-semibold text-ink">{tText(cat.title, locale)}</div>
+              <div dir="ltr" className="flex flex-wrap gap-1.5">
+                {cat.skills.map((s) => (
+                  <span
+                    key={s.name}
+                    className="inline-flex items-center gap-1.5 rounded-md border border-line bg-elevated px-2 py-0.5 text-[11px] font-medium text-ink-secondary"
+                  >
+                    <TechIcon name={s.name} className="h-3 w-3" />
+                    <span>{s.name}</span>
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
-      {/* Engineering Principles */}
-      <section className="space-y-3">
-        <h2 className="text-base font-semibold text-ink">{ui.engineeringValuesLabel}</h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {profileData.engineeringValues.map((val, idx) => (
+      {/* Spoken Languages */}
+      <section className="rounded-2xl border border-line bg-elevated p-5">
+        <div className="flex items-center gap-2 text-sm font-semibold text-ink">
+          <Globe className="h-4 w-4 text-accent" aria-hidden="true" />
+          <span>{locale === 'fa' ? 'زبان‌ها' : 'Languages'}</span>
+        </div>
+        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          {profileData.spokenLanguages.map((lang, i) => (
             <div
-              key={idx}
-              className="rounded-2xl border border-line bg-elevated p-5"
+              key={i}
+              className="flex items-center justify-between rounded-xl border border-line bg-canvas/70 px-3.5 py-2.5 text-xs"
             >
-              <h3 className="text-sm font-semibold text-ink">
-                {tText(val.title, locale)}
-              </h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-ink-secondary">
-                {tText(val.description, locale)}
-              </p>
+              <span className="font-semibold text-ink">{tText(lang.name, locale)}</span>
+              <span className="text-ink-muted">{tText(lang.proficiency, locale)}</span>
             </div>
           ))}
         </div>

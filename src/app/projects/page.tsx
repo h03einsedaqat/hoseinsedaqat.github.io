@@ -3,9 +3,10 @@ import React from 'react';
 import { ProjectsDirectory } from '@/components/resume/ProjectsDirectory';
 
 export const metadata: Metadata = {
-  title: 'Projects & GitHub Repositories',
+  title: 'Projects',
   description:
-    'Explore selected software engineering projects by Hosein Sedaqat including Rahkar ERP, CargoCraft, NovaAdmin, Tishra Analyzer, and Kalamesaz.',
+    'Software engineering projects by Hosein Sedaqat (حسین صداقت) — Rahkar ERP, EchShopy, Wavezon, Neweet, EchGram, EchMail, CargoCraft, NovaAdmin, and Tishra Analyzer. پروژه‌های حسین صداقت.',
+  alternates: { canonical: '/projects/' },
 };
 
 export default function ProjectsPage() {

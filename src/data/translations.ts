@@ -10,6 +10,14 @@ export const uiTranslations: Record<
     aiGroundedBadge: string;
     newChat: string;
     searchChatsPlaceholder: string;
+    searchSuggestionsSectionsHeading: string;
+    searchSuggestionsProjectsHeading: string;
+    searchSuggestionsQuestionsHeading: string;
+    searchSuggestionsChatsHeading: string;
+    searchSuggestionsCategoriesHeading: string;
+    searchSuggestionsStacksHeading: string;
+    searchNoResults: string;
+    clearSearch: string;
     conversationsHeading: string;
     noConversationsYet: string;
     noMatchingConversations: string;
@@ -45,6 +53,18 @@ export const uiTranslations: Record<
     closeSidebar: string;
     collapseSidebar: string;
     expandSidebar: string;
+    settingsLabel: string;
+    settingsSubtitle: string;
+    closeSettings: string;
+    doneLabel: string;
+    appearanceSectionTitle: string;
+    appearanceSectionDesc: string;
+    languageSectionTitle: string;
+    languageSectionDesc: string;
+    englishOptionDesc: string;
+    persianOptionDesc: string;
+    chatDataSectionTitle: string;
+    chatDataSectionDesc: string;
     themeDark: string;
     themeLight: string;
     toggleTheme: string;
@@ -111,7 +131,15 @@ export const uiTranslations: Record<
     verifiedKbBadge: 'Verified Knowledge Base',
     aiGroundedBadge: 'AI + Verified Knowledge Base',
     newChat: 'New Chat',
-    searchChatsPlaceholder: 'Search conversations...',
+    searchChatsPlaceholder: 'Search sections, projects, chats...',
+    searchSuggestionsSectionsHeading: 'Which section would you like to view?',
+    searchSuggestionsProjectsHeading: 'Featured Projects',
+    searchSuggestionsQuestionsHeading: 'Quick Ask in Chat',
+    searchSuggestionsChatsHeading: 'Matching Conversations',
+    searchSuggestionsCategoriesHeading: 'Browse by Category',
+    searchSuggestionsStacksHeading: 'Filter by Tech Stack',
+    searchNoResults: 'No matching sections, projects, or chats found.',
+    clearSearch: 'Clear search',
     conversationsHeading: 'Recent Conversations',
     noConversationsYet: 'Start a conversation to save history here.',
     noMatchingConversations: 'No conversations match your search.',
@@ -125,9 +153,9 @@ export const uiTranslations: Record<
     navExperience: 'Experience',
     navProjects: 'Projects',
     navSkills: 'Skills',
-    navEducation: 'Education & Writing',
+    navEducation: 'Education',
     navContact: 'Contact',
-    navResume: 'Printable Resume',
+    navResume: 'Resume',
     viewResume: 'View Resume',
     downloadResume: 'Download Resume',
     printOrSavePdf: 'Save as PDF / Print',
@@ -149,6 +177,18 @@ export const uiTranslations: Record<
     closeSidebar: 'Close navigation sidebar',
     collapseSidebar: 'Collapse sidebar',
     expandSidebar: 'Expand sidebar',
+    settingsLabel: 'Settings',
+    settingsSubtitle: 'Customize interface appearance, language, and saved local chats.',
+    closeSettings: 'Close settings',
+    doneLabel: 'Done',
+    appearanceSectionTitle: 'Appearance',
+    appearanceSectionDesc: 'Choose between dark charcoal and clean light surfaces.',
+    languageSectionTitle: 'Language & Direction',
+    languageSectionDesc: 'Switch interface and resume content between English (LTR) and Persian (RTL).',
+    englishOptionDesc: 'Left-to-Right (LTR)',
+    persianOptionDesc: 'Right-to-Left (RTL)',
+    chatDataSectionTitle: 'Saved Conversations',
+    chatDataSectionDesc: 'Conversations are stored locally in your browser.',
     themeDark: 'Dark mode',
     themeLight: 'Light mode',
     toggleTheme: 'Switch theme',
@@ -162,7 +202,7 @@ export const uiTranslations: Record<
     liveDemo: 'Live Demo',
     readArticle: 'Technical Article',
     allProjectsTab: 'All Curated',
-    featuredTab: 'Featured',
+    featuredTab: 'Pinned on GitHub',
     dashboardsTab: 'ERP & Dashboards',
     extensionsMobileTab: 'Extension & Mobile',
     uiStudiesTab: 'UI & Clone Studies',
@@ -216,7 +256,15 @@ export const uiTranslations: Record<
     verifiedKbBadge: 'پایگاه دانش تأییدشده',
     aiGroundedBadge: 'هوش مصنوعی + پایگاه دانش تأییدشده',
     newChat: 'گفت‌وگوی جدید',
-    searchChatsPlaceholder: 'جست‌وجوی گفت‌وگوها...',
+    searchChatsPlaceholder: 'جست‌وجوی بخش‌ها، پروژه‌ها و گفت‌وگوها...',
+    searchSuggestionsSectionsHeading: 'کدام بخش را می‌خواهید ببینید؟',
+    searchSuggestionsProjectsHeading: 'پروژه‌های شاخص',
+    searchSuggestionsQuestionsHeading: 'پرسش سریع در چت',
+    searchSuggestionsChatsHeading: 'گفت‌وگوهای مرتبط',
+    searchSuggestionsCategoriesHeading: 'مشاهده بر اساس دسته‌بندی',
+    searchSuggestionsStacksHeading: 'فیلتر سریع تکنولوژی',
+    searchNoResults: 'بخش، پروژه یا گفت‌وگویی مطابق جست‌وجوی شما یافت نشد.',
+    clearSearch: 'پاک کردن جست‌وجو',
     conversationsHeading: 'گفت‌وگوهای اخیر',
     noConversationsYet: 'با شروع یک پرسش، تاریخچه گفت‌وگو در اینجا ذخیره می‌شود.',
     noMatchingConversations: 'گفت‌وگویی مطابق عبارت جست‌وجو یافت نشد.',
@@ -230,9 +278,9 @@ export const uiTranslations: Record<
     navExperience: 'سوابق کاری',
     navProjects: 'پروژه‌ها',
     navSkills: 'مهارت‌های فنی',
-    navEducation: 'تحصیلات و مقالات',
+    navEducation: 'تحصیلات',
     navContact: 'اطلاعات تماس',
-    navResume: 'نسخه چاپی رزومه',
+    navResume: 'رزومه',
     viewResume: 'مشاهده رزومه',
     downloadResume: 'دانلود رزومه',
     printOrSavePdf: 'ذخیره PDF / چاپ',
@@ -254,6 +302,18 @@ export const uiTranslations: Record<
     closeSidebar: 'بستن منوی کناری',
     collapseSidebar: 'جمع کردن نوار کناری',
     expandSidebar: 'باز کردن نوار کناری',
+    settingsLabel: 'تنظیمات',
+    settingsSubtitle: 'شخصی‌سازی پوسته ظاهری، زبان نمایش و تاریخچه گفت‌وگوها.',
+    closeSettings: 'بستن تنظیمات',
+    doneLabel: 'تأیید و بستن',
+    appearanceSectionTitle: 'پوسته ظاهری (Theme)',
+    appearanceSectionDesc: 'انتخاب بین حالت تیره و حالت روشن برای مطالعه راحت‌تر.',
+    languageSectionTitle: 'زبان و جهت چیدمان',
+    languageSectionDesc: 'تغییر هم‌زمان زبان رابط کاربری و محتوای رزومه بین انگلیسی و فارسی.',
+    englishOptionDesc: 'چپ‌به‌راست (LTR)',
+    persianOptionDesc: 'راست‌به‌چپ (فونت وزیرمتن)',
+    chatDataSectionTitle: 'تاریخچه گفت‌وگوها',
+    chatDataSectionDesc: 'گفت‌وگوهای شما به‌صورت محلی در مرورگر ذخیره می‌شوند.',
     themeDark: 'حالت تیره',
     themeLight: 'حالت روشن',
     toggleTheme: 'تغییر پوسته',
@@ -267,7 +327,7 @@ export const uiTranslations: Record<
     liveDemo: 'دموی زنده',
     readArticle: 'مقاله فنی',
     allProjectsTab: 'همه پروژه‌های منتخب',
-    featuredTab: 'پروژه‌های شاخص',
+    featuredTab: 'پین‌شده در گیت‌هاب',
     dashboardsTab: 'ERP و داشبوردها',
     extensionsMobileTab: 'افزونه و موبایل',
     uiStudiesTab: 'مطالعات UI و Clone',

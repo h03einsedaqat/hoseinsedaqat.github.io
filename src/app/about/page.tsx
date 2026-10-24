@@ -3,9 +3,10 @@ import React from 'react';
 import { ProfileSection } from '@/components/resume/ProfileSection';
 
 export const metadata: Metadata = {
-  title: 'About & Profile',
+  title: 'About',
   description:
-    'Professional summary, full-stack engineering specializations, and software architecture principles of Hosein Sedaqat.',
+    'About Hosein Sedaqat (حسین صداقت) — Full-Stack Developer with 5+ years of experience in FinTech & SaaS web applications. معرفی و بیوگرافی حسین صداقت.',
+  alternates: { canonical: '/about/' },
 };
 
 export default function AboutPage() {
