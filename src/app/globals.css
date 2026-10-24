@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter Variable', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    sans-serif;
+
+  /* Light Theme Tokens — Clean ChatGPT-inspired neutral hierarchy */
+  --bg-main: #ffffff;
+  --bg-sidebar: #f9f9f9;
+  --bg-elevated: #f9f9f9;
+  --bg-composer: #f4f4f4;
+  --bg-user-bubble: #f4f4f4;
+  --bg-hover: #efefef;
+  --bg-sidebar-hover: #ececec;
+  --bg-active: #e8e8e8;
+
+  --text-primary: #0d0d0d;
+  --text-secondary: #4a4a4a;
+  --text-muted: #6e6e6e;
+
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.16);
+
+  --accent: #0d8a6a;
+  --accent-soft: rgba(13, 138, 106, 0.1);
+
+  --shadow-composer: 0 2px 12px rgba(0, 0, 0, 0.05);
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.dark {
+  /* Dark Theme Tokens — Deep charcoal surfaces, subtle separation */
+  --bg-main: #212121;
+  --bg-sidebar: #171717;
+  --bg-elevated: #2a2a2a;
+  --bg-composer: #2f2f2f;
+  --bg-user-bubble: #2f2f2f;
+  --bg-hover: #323232;
+  --bg-sidebar-hover: #242424;
+  --bg-active: #2f2f2f;
+
+  --text-primary: #ececec;
+  --text-secondary: #b4b4b4;
+  --text-muted: #8e8e8e;
+
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.17);
+
+  --accent: #10a37f;
+  --accent-soft: rgba(16, 163, 127, 0.14);
+
+  --shadow-composer: 0 4px 18px rgba(0, 0, 0, 0.28);
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.28);
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html[lang='fa'] {
+  font-family: 'Vazirmatn', var(--font-sans);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Subtle custom scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-strong);
+  border-radius: 9999px;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInSlide 180ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Clean A4 Executive Print / PDF Rules */
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+    overflow: visible !important;
+    font-size: 11pt;
+  }
+
+  .resume-sheet {
+    box-shadow: none !important;
+  }
+}
