@@ -123,12 +123,18 @@ All personal data is managed centrally without editing UI components:
 
 ## Deployment
 
-### Vercel (Recommended — Full SSR + API Routes)
+### GitHub Pages (Configured Automatically via GitHub Actions)
 
-1. Import `hoseinsedaqat/hoseinsedaqat.github.io` in Vercel.
-2. Framework Preset: **Next.js** (detected automatically).
-3. Add optional environment variables (`OPENAI_API_KEY`, `GITHUB_TOKEN`) in Project Settings if desired.
-4. Deploy.
+This repository is configured with Next.js static export (`output: 'export'`, `trailingSlash: true`, `public/.nojekyll`) and includes `.github/workflows/deploy.yml`:
+
+1. In your GitHub repository, open **Settings → Pages → Build and deployment**.
+2. Set **Source** to **GitHub Actions** (instead of *Deploy from a branch*, which otherwise renders `README.md`).
+3. Every push or merged pull request to `master` automatically runs `npm ci && npm run build` and deploys `./out` to `https://hoseinsedaqat.github.io/`.
+
+### Vercel / Netlify
+
+1. Import `hoseinsedaqat/hoseinsedaqat.github.io`.
+2. Build Command: `npm run build` · Output Directory: `out`.
 
 ---
 

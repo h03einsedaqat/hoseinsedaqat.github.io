@@ -31,17 +31,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const stored = loadStoredTheme();
-    if (stored) {
-      setThemeState(stored);
-      applyThemeToDocument(stored);
-    } else {
-      const prefersDark =
-        typeof window !== 'undefined' &&
-        window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-      const initial: Theme = prefersDark ? 'dark' : 'light';
-      setThemeState(initial);
-      applyThemeToDocument(initial);
-    }
+    const initial: Theme = stored === 'light' ? 'light' : 'dark';
+    setThemeState(initial);
+    applyThemeToDocument(initial);
     setMounted(true);
   }, []);
 

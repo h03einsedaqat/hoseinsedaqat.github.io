@@ -19,10 +19,12 @@ export function loadConversations(): Conversation[] {
     if (!raw) return [];
     const parsed = JSON.parse(raw);
     if (!Array.isArray(parsed)) return [];
-    return parsed.filter(
-      (item): item is Conversation =>
-        Boolean(item && typeof item.id === 'string' && Array.isArray(item.messages))
-    );
+    return parsed
+      .filter(
+        (item): item is Conversation =>
+          Boolean(item && typeof item.id === 'string' && Array.isArray(item.messages))
+      )
+      .sort((a, b) => (b.updatedAt || '').localeCompare(a.updatedAt || ''));
   } catch {
     return [];
   }

@@ -3,9 +3,10 @@ import React from 'react';
 import { ExperiencePageContent } from '@/app/experience/ExperiencePageContent';
 
 export const metadata: Metadata = {
-  title: 'Professional Experience',
+  title: 'Experience',
   description:
-    'Work history and engineering outcomes of Hosein Sedaqat across FinTech at Paystar, full-stack ERP architecture, and web development.',
+    'Work history of Hosein Sedaqat (حسین صداقت) — Full-Stack & Front-End Developer at Paystar, Mangro, Rahkar ERP, and remote engineering teams. سوابق کاری حسین صداقت.',
+  alternates: { canonical: '/experience/' },
 };
 
 export default function ExperiencePage() {

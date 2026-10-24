@@ -2,9 +2,17 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { ArrowUpLeft, ArrowUpRight, BookOpen, ExternalLink, FolderGit2, Layers } from 'lucide-react';
+import {
+  ArrowUpLeft,
+  ArrowUpRight,
+  BookOpen,
+  ExternalLink,
+  FolderGit2,
+  Pin,
+} from 'lucide-react';
+import { ProjectCoverImage } from '@/components/resume/ProjectCoverImage';
+import { TechIcon } from '@/components/resume/TechIcon';
 import { useLanguage } from '@/context/LanguageContext';
-import { featuredProjectSlugs } from '@/data/projects';
 import { cn, tText } from '@/lib/utils';
 import type { ProjectItem } from '@/types/portfolio';
 
@@ -16,93 +24,102 @@ interface ProjectCardProps {
 export function ProjectCard({ project, compact = false }: ProjectCardProps) {
   const { locale, isRTL, ui } = useLanguage();
   const DirectionalArrow = isRTL ? ArrowUpLeft : ArrowUpRight;
-  const isFeatured = featuredProjectSlugs.includes(project.slug);
 
   return (
-    <article
-      className={cn(
-        'group flex flex-col justify-between rounded-2xl border border-line bg-elevated transition-colors hover:border-line-strong',
-        compact ? 'p-4' : 'p-5'
-      )}
-    >
-      <div className="space-y-3">
-        {/* Badges + Year */}
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <div className="flex flex-wrap items-center gap-1.5">
-            {isFeatured && !project.isCloneOrInspired && (
-              <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent-soft px-2.5 py-0.5 text-[11px] font-medium text-accent">
-                <Layers className="h-3 w-3" aria-hidden="true" />
-                <span>{ui.featuredBadge}</span>
+    <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-elevated transition-colors hover:border-line-strong">
+      <div>
+        {/* Project Screenshot / Cover */}
+        <ProjectCoverImage
+          name={tText(project.name, locale)}
+          href={`/projects/${project.slug}`}
+          imageUrl={project.imageUrl}
+          fallbackImageUrl={project.fallbackImageUrl}
+          readmeImageRepo={project.readmeImageRepo}
+          screenshots={project.screenshots}
+          className="border-b border-line"
+        />
+
+        <div className={cn('space-y-3', compact ? 'p-4' : 'p-5')}>
+          {/* Badges + Year */}
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center gap-1.5">
+              {project.pinned && (
+                <span className="inline-flex items-center gap-1 rounded-full border border-accent/30 bg-accent-soft px-2.5 py-0.5 text-[11px] font-medium text-accent">
+                  <Pin className="h-3 w-3" aria-hidden="true" />
+                  <span>{locale === 'fa' ? 'پین‌شده' : 'Pinned'}</span>
+                </span>
+              )}
+              {project.isCloneOrInspired && (
+                <span className="inline-flex items-center rounded-full border border-line-strong bg-canvas/70 px-2.5 py-0.5 text-[11px] font-medium text-ink-secondary">
+                  {ui.inspiredBadge}
+                </span>
+              )}
+              <span className="inline-flex items-center rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">
+                {tText(project.statusLabel, locale)}
               </span>
-            )}
-            {project.isCloneOrInspired && (
-              <span className="inline-flex items-center rounded-full border border-line-strong bg-canvas/70 px-2.5 py-0.5 text-[11px] font-medium text-ink-secondary">
-                {ui.inspiredBadge}
-              </span>
-            )}
-            <span className="inline-flex items-center rounded-full border border-line px-2 py-0.5 text-[11px] text-ink-muted">
-              {tText(project.statusLabel, locale)}
+            </div>
+            <span className="text-xs tabular-nums text-ink-muted">
+              {project.updatedYear}
             </span>
           </div>
-          <span className="text-xs tabular-nums text-ink-muted">{project.updatedYear}</span>
-        </div>
 
-        {/* Title & Tagline */}
-        <div>
-          <h3 className="text-base font-semibold tracking-tight text-ink">
-            <Link
-              href={`/projects/${project.slug}`}
-              className="hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 rounded"
-            >
-              {tText(project.name, locale)}
-            </Link>
-          </h3>
-          <p className="mt-1 text-sm leading-relaxed text-ink-secondary">
-            {tText(project.summary, locale)}
-          </p>
-        </div>
-
-        {/* Problem & Purpose */}
-        {!compact && (
-          <div className="rounded-xl border border-line bg-canvas/50 p-3 text-xs leading-relaxed text-ink-secondary">
-            <span className="font-semibold text-ink">{ui.problemLabel}: </span>
-            {tText(project.problem, locale)}
-          </div>
-        )}
-
-        {/* Highlights if present (e.g. Rahkar ERP) */}
-        {project.highlights && project.highlights.length > 0 && (
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
-            {project.highlights.map((hl, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-line bg-canvas/60 px-2.5 py-2"
+          {/* Title & Tagline */}
+          <div>
+            <h3 className="text-base font-semibold tracking-tight text-ink">
+              <Link
+                href={`/projects/${project.slug}`}
+                className="rounded hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
               >
-                <div className="text-[11px] text-ink-muted">{tText(hl.label, locale)}</div>
-                <div className="mt-0.5 text-xs font-semibold text-ink">
-                  {tText(hl.value, locale)}
+                {tText(project.name, locale)}
+              </Link>
+            </h3>
+            <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-ink-secondary sm:text-sm">
+              {tText(project.tagline, locale)}
+            </p>
+          </div>
+
+          {/* Highlights if present (e.g. Rahkar ERP) */}
+          {project.highlights && project.highlights.length > 0 && !compact && (
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+              {project.highlights.map((hl, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl border border-line bg-canvas/60 px-2.5 py-2"
+                >
+                  <div className="text-[11px] text-ink-muted">
+                    {tText(hl.label, locale)}
+                  </div>
+                  <div className="mt-0.5 text-xs font-semibold text-ink">
+                    {tText(hl.value, locale)}
+                  </div>
                 </div>
-              </div>
+              ))}
+            </div>
+          )}
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-1.5 pt-0.5">
+            {project.technologies.slice(0, compact ? 5 : 8).map((tech) => (
+              <span
+                key={tech}
+                dir="ltr"
+                className="inline-flex items-center gap-1.5 rounded-md border border-line bg-canvas/70 px-2 py-0.5 text-[11px] font-medium text-ink-secondary"
+              >
+                <TechIcon name={tech} className="h-3 w-3" />
+                <span>{tech}</span>
+              </span>
             ))}
           </div>
-        )}
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 pt-0.5">
-          {project.technologies.slice(0, compact ? 6 : 9).map((tech) => (
-            <span
-              key={tech}
-              dir="ltr"
-              className="inline-flex items-center rounded-md border border-line bg-canvas/70 px-2 py-0.5 text-[11px] font-medium text-ink-secondary"
-            >
-              {tech}
-            </span>
-          ))}
         </div>
       </div>
 
       {/* Footer Actions */}
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
+      <div
+        className={cn(
+          'flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3',
+          compact ? 'px-4 pb-4' : 'px-5 pb-5'
+        )}
+      >
         <div className="flex flex-wrap items-center gap-2">
           <a
             href={project.repoUrl}

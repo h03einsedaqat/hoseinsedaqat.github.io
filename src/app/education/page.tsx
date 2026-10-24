@@ -3,9 +3,10 @@ import React from 'react';
 import { EducationPageContent } from '@/app/education/EducationPageContent';
 
 export const metadata: Metadata = {
-  title: 'Education, Credentials & Writing',
+  title: 'Education',
   description:
-    'Academic background at University of Sistan and Baluchestan, technical articles on DEV Community & Medium, and verified LinkedIn credentials of Hosein Sedaqat.',
+    'Education and certifications of Hosein Sedaqat (حسین صداقت) — B.Sc. Industrial Engineering at University of Sistan and Baluchestan & 6 verified Sololearn credentials. تحصیلات حسین صداقت.',
+  alternates: { canonical: '/education/' },
 };
 
 export default function EducationPage() {

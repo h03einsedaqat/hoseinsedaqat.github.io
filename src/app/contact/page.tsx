@@ -5,7 +5,8 @@ import { ContactPageContent } from '@/app/contact/ContactPageContent';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Connect with Hosein Sedaqat via direct email, LinkedIn, GitHub, Stack Overflow, or DEV Community.',
+    'Contact Hosein Sedaqat (حسین صداقت) directly via email, LinkedIn, GitHub, or Stack Overflow. راه‌های ارتباطی با حسین صداقت.',
+  alternates: { canonical: '/contact/' },
 };
 
 export default function ContactPage() {

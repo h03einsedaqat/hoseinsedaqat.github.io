@@ -67,6 +67,14 @@ export interface ProjectItem {
   inspiredBy?: string;
   status: ProjectStatus;
   statusLabel: BilingualText;
+  pinned?: boolean;
+  imageUrl: string;
+  fallbackImageUrl?: string;
+  readmeImageRepo?: string;
+  screenshots?: {
+    url: string;
+    label: BilingualText;
+  }[];
   technologies: string[];
   repoUrl: string;
   demoUrl?: string;
@@ -111,6 +119,15 @@ export interface PublicationItem {
   tags: string[];
 }
 
+export interface CertificationItem {
+  id: string;
+  title: string;
+  issuer: string;
+  issuedDate: BilingualText;
+  credentialId?: string;
+  url?: string;
+}
+
 export interface CertificationNote {
   title: BilingualText;
   description: BilingualText;
@@ -135,6 +152,10 @@ export interface ProfileData {
   stackoverflowUrl: string;
   devtoUrl: string;
   mediumUrl: string;
+  spokenLanguages: {
+    name: BilingualText;
+    proficiency: BilingualText;
+  }[];
   summaryParagraphs: BilingualList;
   focusAreas: BilingualList;
   engineeringValues: {

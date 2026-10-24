@@ -38,7 +38,10 @@ describe('End-to-End Conversational Portfolio Flow', () => {
 
     // Welcome screen greeting is visible
     expect(
-      screen.getByText(/Hi, I'm Hosein Sedaqat\. Explore my work/i)
+      screen.getByRole('heading', {
+        level: 1,
+        name: /Hi, I'm Hosein Sedaqat — Full-Stack Developer\./i,
+      })
     ).toBeInTheDocument();
 
     // Click a recommendation card
@@ -55,7 +58,7 @@ describe('End-to-End Conversational Portfolio Flow', () => {
     });
 
     expect(
-      screen.queryByText(/Suggested questions for recruiters/i)
+      screen.queryByRole('region', { name: /Suggested questions for recruiters/i })
     ).not.toBeInTheDocument();
 
     // Conversation appears in localStorage
@@ -70,7 +73,10 @@ describe('End-to-End Conversational Portfolio Flow', () => {
     fireEvent.click(newChatBtn);
 
     expect(
-      screen.getByText(/Hi, I'm Hosein Sedaqat\. Explore my work/i)
+      screen.getByRole('heading', {
+        level: 1,
+        name: /Hi, I'm Hosein Sedaqat — Full-Stack Developer\./i,
+      })
     ).toBeInTheDocument();
 
     // Reopen previous conversation from Sidebar history

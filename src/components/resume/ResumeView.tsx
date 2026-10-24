@@ -8,6 +8,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { getFeaturedProjects } from '@/data/projects';
 import {
   certificationNote,
+  certifications,
   educationItems,
   experienceItems,
   profileData,
@@ -40,7 +41,7 @@ export function ResumeView() {
   };
 
   return (
-    <div className="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 sm:py-8 print:max-w-none print:p-0">
+    <div className="mx-auto w-full max-w-4xl px-4 py-6 sm:px-6 sm:py-8 print:max-w-none print:px-2 print:py-1">
       {/* Screen Toolbar (Hidden in Print/PDF) */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-line bg-elevated p-4 print:hidden">
         <div className="flex items-center gap-3">
@@ -69,17 +70,24 @@ export function ResumeView() {
       </div>
 
       {/* Printable Resume Sheet */}
-      <article className="resume-sheet space-y-6 rounded-2xl border border-line bg-elevated p-6 sm:p-10 print:space-y-4 print:rounded-none print:border-0 print:bg-white print:p-0 print:text-black">
+      <article className="resume-sheet space-y-6 rounded-2xl border border-line bg-elevated p-6 sm:p-10 print:space-y-5 print:rounded-none print:border-0 print:bg-white print:text-black">
         {/* Header: Name, Title & Contact */}
-        <header className="border-b border-line pb-5 print:border-neutral-300 print:pb-3">
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between">
-            <div>
-              <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl print:text-2xl print:text-black">
-                {tText(profileData.name, locale)}
-              </h1>
-              <p className="mt-1 text-sm font-medium text-ink-secondary print:text-neutral-700">
-                {tText(profileData.headline, locale)}
-              </p>
+        <header className="border-b border-line pb-5 print:border-neutral-300 print:pb-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-3.5">
+              <img
+                src={profileData.avatarUrl}
+                alt={tText(profileData.name, locale)}
+                className="h-14 w-14 shrink-0 rounded-xl border border-line object-cover object-top print:h-12 print:w-12 print:border-neutral-300"
+              />
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight text-ink sm:text-3xl print:text-2xl print:text-black">
+                  {tText(profileData.name, locale)}
+                </h1>
+                <p className="mt-1 text-sm font-medium text-ink-secondary print:text-neutral-700">
+                  {tText(profileData.headline, locale)}
+                </p>
+              </div>
             </div>
             <div className="text-xs text-ink-muted print:text-neutral-600">
               {tText(profileData.location, locale)}
@@ -142,21 +150,9 @@ export function ResumeView() {
                   </span>
                 </div>
 
-                <p className="text-xs leading-relaxed text-ink-secondary print:text-neutral-700">
-                  {tText(exp.summary, locale)}
-                </p>
-
                 <ul className="list-disc space-y-1 ps-4 text-xs leading-relaxed text-ink-secondary print:text-neutral-800">
-                  {tList(exp.responsibilities, locale).slice(0, 3).map((r, i) => (
+                  {tList(exp.responsibilities, locale).map((r, i) => (
                     <li key={i}>{r}</li>
-                  ))}
-                  {exp.achievements.map((ach, i) => (
-                    <li key={`ach-${i}`}>
-                      <strong className="font-medium text-ink print:text-black">
-                        {ui.outcomeLabel}:{' '}
-                      </strong>
-                      {tText(ach.outcome, locale)}
-                    </li>
                   ))}
                 </ul>
               </div>
@@ -224,7 +220,7 @@ export function ResumeView() {
         </section>
 
         {/* Education & Publications */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2 break-inside-avoid">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 print:grid-cols-2 print:gap-6 break-inside-avoid">
           <section className="space-y-2">
             <h2 className="border-b border-line pb-1.5 text-xs font-bold uppercase tracking-wider text-ink print:border-neutral-300 print:text-black">
               {ui.resumeEducationTitle}
@@ -236,12 +232,18 @@ export function ResumeView() {
                 </div>
                 <div className="text-ink-secondary print:text-neutral-800">
                   {tText(edu.institution, locale)}
+                  {edu.period ? ` (${tText(edu.period, locale)})` : ''}
                 </div>
               </div>
             ))}
-            <p className="text-[11px] text-ink-muted print:text-neutral-600">
-              {tText(certificationNote.title, locale)}: linkedin.com/in/hoseinsedaqat
-            </p>
+            <ul className="space-y-0.5 text-[11px] text-ink-muted print:text-neutral-600">
+              {certifications.map((c) => (
+                <li key={c.id} dir="ltr" className="text-start">
+                  • {c.title} — {c.issuer} ({c.credentialId})
+                </li>
+              ))}
+              <li>• {tText(certificationNote.title, locale)}</li>
+            </ul>
           </section>
 
           <section className="space-y-2">

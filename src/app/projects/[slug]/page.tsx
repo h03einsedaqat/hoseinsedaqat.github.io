@@ -21,8 +21,16 @@ export async function generateMetadata({
     return { title: 'Project Not Found' };
   }
   return {
-    title: project.name.en,
-    description: `${project.tagline.en} — ${project.summary.en}`,
+    title: `${project.name.en} — Project by Hosein Sedaqat`,
+    description: `${project.tagline.en} — Built by Hosein Sedaqat (حسین صداقت).`,
+    alternates: { canonical: `/projects/${project.slug}/` },
+    openGraph: {
+      images: [project.imageUrl],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [project.imageUrl],
+    },
   };
 }
 

@@ -107,6 +107,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     setActiveConversationId(null);
     setMobileDrawerOpen(false);
     if (pathname !== '/') {
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new Event('hs:route-start'));
+      }
       router.push('/');
     }
   }, [pathname, router]);
@@ -116,6 +119,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       setActiveConversationId(id);
       setMobileDrawerOpen(false);
       if (pathname !== '/') {
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new Event('hs:route-start'));
+        }
         router.push('/');
       }
     },
@@ -183,35 +189,37 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
         // Compute deterministic local Knowledge Base response first
         let payload: AssistantResponsePayload = generateLocalAssistantResponse(trimmed);
 
-        // Optionally check server /api/chat route if an LLM API key is configured server-side
-        try {
-          const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: trimmed, locale }),
-          });
-          if (response.ok) {
-            const data = (await response.json()) as {
-              mode?: 'local' | 'ai';
-              aiReply?: string;
-            };
-            if (data.mode === 'ai' && data.aiReply) {
-              setAiModeActive(true);
-              payload = {
-                ...payload,
-                content: {
-                  en: locale === 'en' ? data.aiReply : payload.content.en,
-                  fa: locale === 'fa' ? data.aiReply : payload.content.fa,
-                },
-                sourceMode: 'ai-grounded',
+        // Optional external AI endpoint (if NEXT_PUBLIC_CHAT_API_URL is configured)
+        const optionalChatEndpoint = process.env.NEXT_PUBLIC_CHAT_API_URL;
+        if (optionalChatEndpoint) {
+          try {
+            const response = await fetch(optionalChatEndpoint, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ message: trimmed, locale }),
+            });
+            if (response.ok) {
+              const data = (await response.json()) as {
+                mode?: 'local' | 'ai';
+                aiReply?: string;
               };
-            } else {
-              // Brief natural UI cadence (~180ms) without artificial slowness
-              await new Promise((res) => setTimeout(res, 180));
+              if (data.mode === 'ai' && data.aiReply) {
+                setAiModeActive(true);
+                payload = {
+                  ...payload,
+                  content: {
+                    en: locale === 'en' ? data.aiReply : payload.content.en,
+                    fa: locale === 'fa' ? data.aiReply : payload.content.fa,
+                  },
+                  sourceMode: 'ai-grounded',
+                };
+              }
             }
+          } catch {
+            // Graceful local fallback when offline or unreachable
           }
-        } catch {
-          // Graceful local fallback when offline or statically hosted
+        } else {
+          // Brief natural UI cadence (~160ms) on static hosting (GitHub Pages)
           await new Promise((res) => setTimeout(res, 160));
         }
 
@@ -247,6 +255,9 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
     (promptText: string) => {
       setMobileDrawerOpen(false);
       if (pathname !== '/') {
+        if (typeof window !== 'undefined') {
+          window.dispatchEvent(new Event('hs:route-start'));
+        }
         router.push('/');
       }
       // Trigger message after navigation frame

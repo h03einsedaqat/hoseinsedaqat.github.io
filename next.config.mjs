@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   reactStrictMode: true,
+  devIndicators: false,
   allowedDevOrigins: [
     '*.e2b.app',
     '*.arena.ai',

@@ -3,9 +3,10 @@ import React, { Suspense } from 'react';
 import { ResumeView } from '@/components/resume/ResumeView';
 
 export const metadata: Metadata = {
-  title: 'Printable Executive Resume',
+  title: 'Resume',
   description:
-    'Single-source printable A4 executive resume of Hosein Sedaqat — Full-Stack Developer.',
+    'Resume of Hosein Sedaqat (حسین صداقت) — Full-Stack Developer (React, Next.js, Vue.js, Node.js, TypeScript). رزومه کامل حسین صداقت.',
+  alternates: { canonical: '/resume/' },
 };
 
 export default function ResumePage() {
