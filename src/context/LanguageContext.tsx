@@ -1,16 +1,15 @@
 'use client';
 
-import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect } from 'react';
 import { uiTranslations } from '@/data/translations';
-import { loadStoredLocale, saveStoredLocale } from '@/lib/storage';
 import type { Locale } from '@/types/portfolio';
 
 type UIDictionary = (typeof uiTranslations)['en'];
 
 interface LanguageContextValue {
   locale: Locale;
-  dir: 'ltr' | 'rtl';
-  isRTL: boolean;
+  dir: 'ltr';
+  isRTL: false;
   ui: UIDictionary;
   setLocale: (locale: Locale) => void;
   toggleLocale: () => void;
@@ -18,53 +17,32 @@ interface LanguageContextValue {
 
 const LanguageContext = createContext<LanguageContextValue | undefined>(undefined);
 
-function applyLocaleToDocument(locale: Locale) {
-  if (typeof document === 'undefined') return;
-  const root = document.documentElement;
-  const dir = locale === 'fa' ? 'rtl' : 'ltr';
-  root.lang = locale;
-  root.dir = dir;
-}
-
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>('en');
-
   useEffect(() => {
-    const stored = loadStoredLocale();
-    if (stored) {
-      setLocaleState(stored);
-      applyLocaleToDocument(stored);
-    } else {
-      applyLocaleToDocument('en');
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = 'en';
+      document.documentElement.dir = 'ltr';
+    }
+    if (typeof window !== 'undefined') {
+      try {
+        window.localStorage.removeItem('hs-locale');
+      } catch {
+        // Ignore storage errors
+      }
     }
   }, []);
 
-  const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
-    saveStoredLocale(next);
-    applyLocaleToDocument(next);
-  }, []);
-
-  const toggleLocale = useCallback(() => {
-    setLocaleState((prev) => {
-      const next: Locale = prev === 'en' ? 'fa' : 'en';
-      saveStoredLocale(next);
-      applyLocaleToDocument(next);
-      return next;
-    });
-  }, []);
-
-  const dir = locale === 'fa' ? 'rtl' : 'ltr';
+  const noop = useCallback(() => {}, []);
 
   return (
     <LanguageContext.Provider
       value={{
-        locale,
-        dir,
-        isRTL: dir === 'rtl',
-        ui: uiTranslations[locale],
-        setLocale,
-        toggleLocale,
+        locale: 'en',
+        dir: 'ltr',
+        isRTL: false,
+        ui: uiTranslations.en,
+        setLocale: noop,
+        toggleLocale: noop,
       }}
     >
       {children}

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import React from 'react';
 import { ProjectDetailView } from '@/components/resume/ProjectDetailView';
 import { curatedProjects, getProjectBySlug } from '@/data/projects';
+import { buildPageMetadata, buildProjectSoftwareJsonLd } from '@/lib/seo';
 
 interface ProjectDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -20,18 +21,12 @@ export async function generateMetadata({
   if (!project) {
     return { title: 'Project Not Found' };
   }
-  return {
-    title: `${project.name.en} — Project by Hosein Sedaqat`,
+  return buildPageMetadata({
+    title: `${project.name.en} — Project`,
     description: `${project.tagline.en} — Built by Hosein Sedaqat (حسین صداقت).`,
-    alternates: { canonical: `/projects/${project.slug}/` },
-    openGraph: {
-      images: [project.imageUrl],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      images: [project.imageUrl],
-    },
-  };
+    path: `/projects/${project.slug}/`,
+    image: project.imageUrl,
+  });
 }
 
 export default async function ProjectDetailPage({ params }: ProjectDetailPageProps) {
@@ -42,8 +37,14 @@ export default async function ProjectDetailPage({ params }: ProjectDetailPagePro
     notFound();
   }
 
+  const softwareJsonLd = buildProjectSoftwareJsonLd(project);
+
   return (
     <div className="h-full overflow-y-auto">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+      />
       <ProjectDetailView project={project} />
     </div>
   );

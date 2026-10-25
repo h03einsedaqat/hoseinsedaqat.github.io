@@ -233,8 +233,7 @@ export function Sidebar() {
             <span className="font-medium">{ui.settingsLabel}</span>
           </span>
           <span className="rounded-md border border-line bg-elevated px-2 py-0.5 text-[11px] font-medium text-ink-muted">
-            {theme === 'dark' ? (locale === 'fa' ? 'تیره' : 'Dark') : locale === 'fa' ? 'روشن' : 'Light'}{' '}
-            · {locale === 'fa' ? 'FA' : 'EN'}
+            {theme === 'dark' ? 'Dark' : 'Light'}
           </span>
         </button>
 

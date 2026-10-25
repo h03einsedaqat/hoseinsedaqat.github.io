@@ -40,13 +40,13 @@ describe('End-to-End Conversational Portfolio Flow', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /Hi, I'm Hosein Sedaqat — Full-Stack Developer\./i,
+        name: /Hi, I'm Hosein Sedaqat · Full-Stack Developer/i,
       })
     ).toBeInTheDocument();
 
     // Click a recommendation card
     const rahkarPromptBtn = screen.getByRole('button', {
-      name: /Tell me about Rahkar ERP/i,
+      name: /How does Rahkar ERP work\?/i,
     });
     fireEvent.click(rahkarPromptBtn);
 
@@ -66,7 +66,7 @@ describe('End-to-End Conversational Portfolio Flow', () => {
       window.localStorage.getItem('hs-portfolio-conversations-v1') || '[]'
     );
     expect(stored).toHaveLength(1);
-    expect(stored[0].title).toBe('Tell me about Rahkar ERP');
+    expect(stored[0].title).toBe('How does Rahkar ERP work?');
 
     // Click New Chat in Sidebar -> returns to Welcome screen
     const newChatBtn = screen.getByRole('button', { name: /New Chat/i });
@@ -75,13 +75,13 @@ describe('End-to-End Conversational Portfolio Flow', () => {
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: /Hi, I'm Hosein Sedaqat — Full-Stack Developer\./i,
+        name: /Hi, I'm Hosein Sedaqat · Full-Stack Developer/i,
       })
     ).toBeInTheDocument();
 
     // Reopen previous conversation from Sidebar history
     const savedHistoryItem = screen.getByRole('button', {
-      name: 'Tell me about Rahkar ERP',
+      name: 'How does Rahkar ERP work?',
     });
     fireEvent.click(savedHistoryItem);
 
@@ -91,7 +91,7 @@ describe('End-to-End Conversational Portfolio Flow', () => {
 
     // Delete conversation
     const deleteBtn = screen.getByRole('button', {
-      name: /Delete conversation: Tell me about Rahkar ERP/i,
+      name: /Delete conversation: How does Rahkar ERP work\?/i,
     });
     fireEvent.click(deleteBtn);
 
