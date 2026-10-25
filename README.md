@@ -1,145 +1,138 @@
-# Hosein Sedaqat — Conversational Developer Portfolio
+<div align="center">
+  <img src="public/photo/hosein-sedaqat-readme.png" alt="Hosein Sedaqat (حسین صداقت) — Full-Stack Developer" width="136" height="136" />
 
-An interactive, ChatGPT-inspired **Conversational Developer Portfolio & Resume Assistant** built for **Hosein Sedaqat** (`Full-Stack Developer | React, Next.js, Vue.js, TypeScript & Node.js`).
+  <h1>Hosein Sedaqat</h1>
 
-Instead of a static brochure, recruiters, hiring managers, and engineering leads can explore verified work experience, featured software architectures, technical skills, and direct contact links through a conversational interface—or browse structured resume views and export a clean A4 PDF.
+  <p><strong>Full-Stack Developer — React · Next.js · Vue.js · Node.js · TypeScript</strong></p>
 
----
+  <p>Bandar Abbas, Iran · Open to Remote</p>
 
-## Key Capabilities
-
-- **ChatGPT-Inspired Conversational UX** — Full-viewport responsive workspace featuring a collapsible sidebar (`268px` expanded / `60px` icon rail with tooltips, mobile drawer on small screens), conversation history search, single/all chat deletion with confirmation, auto-growing multiline composer (`Enter` to send, `Shift + Enter` for newline), and contextual follow-up prompts.
-- **100% Verified Centralized Knowledge Base** — All profile facts, Paystar FinTech experience, project case studies (led by **Rahkar ERP**, **CargoCraft**, **NovaAdmin**, **Tishra Analyzer**, **Kalamesaz**, and **EchMail**), skills, education, and publications live in typed modules under `src/data/` with zero fabricated claims or arbitrary skill percentages.
-- **Zero-Key Offline Resilience + Optional Server AI Route** — Works out-of-the-box using a deterministic local Resume Knowledge Base engine (`src/lib/chat-engine.ts`), while providing a server-only `/api/chat` route ready for an `OPENAI_API_KEY` without ever exposing secrets to the browser.
-- **Dark & Light Design Token System** — Deep charcoal dark mode and crisp neutral light mode with system-preference detection and an inline head script that eliminates theme/direction flash on load.
-- **Native Bilingual Support (English LTR & Persian RTL)** — Instant switching between English (`ltr`, Inter Variable) and Persian (`rtl`, bundled Vazirmatn font) with full layout mirroring and `localStorage` persistence.
-- **Structured Resume Routes & Print-Ready A4 PDF** — Dedicated SEO-friendly pages (`/about`, `/experience`, `/projects`, `/projects/[slug]`, `/skills`, `/education`, `/contact`, `/resume`) plus one-click `Download Resume` (`window.print()` with `@media print` rules stripping all chat chrome).
-- **Live GitHub Sync with Automatic Fallback** — Server route `/api/github` fetches non-fork public repositories from `github.com/hoseinsedaqat` and falls back seamlessly to a verified snapshot if offline or rate-limited.
-
----
-
-## Tech Stack
-
-- **Framework:** Next.js 15 (App Router) + React 19
-- **Language:** TypeScript (strict mode)
-- **Styling:** Tailwind CSS + CSS Custom Property Design Tokens
-- **Typography:** Self-hosted `@fontsource-variable/inter` & `@fontsource/vazirmatn`
-- **Icons:** Lucide React + custom geometric `HS` monogram SVG
-- **Persistence:** Browser `localStorage` (`src/lib/storage.ts`)
-- **Testing:** Vitest + React Testing Library + JSDOM
+  <p>
+    <a href="https://hoseinsedaqat.github.io/"><strong>Live Portfolio</strong></a> ·
+    <a href="https://hoseinsedaqat.github.io/resume/"><strong>Printable Resume</strong></a> ·
+    <a href="https://www.linkedin.com/in/hoseinsedaqat/">LinkedIn</a> ·
+    <a href="https://github.com/hoseinsedaqat">GitHub</a> ·
+    <a href="https://stackoverflow.com/users/14983011/hosein-sedaqat">Stack Overflow</a> ·
+    <a href="https://dev.to/hoseinsedaqat">DEV</a> ·
+    <a href="https://hoseinsedaqat.medium.com/">Medium</a> ·
+    <a href="mailto:hsedaqat1378@gmail.com">hsedaqat1378@gmail.com</a>
+  </p>
+</div>
 
 ---
 
-## Project Structure
+## Summary
 
-```text
-src/
-├── app/                    # Next.js App Router pages, metadata, sitemap, OG image & API routes
-│   ├── api/chat/           # Optional server-side LLM route grounded in verified resume data
-│   ├── api/github/         # Server-side GitHub public repo fetcher with fallback
-│   ├── about/              # Profile & engineering principles
-│   ├── experience/         # Career timeline & Problem → Action → Result outcomes
-│   ├── projects/           # Searchable/filterable project directory & [slug] case studies
-│   ├── skills/             # Evidence-linked technical skills matrix
-│   ├── education/          # University degree, technical articles & LinkedIn credentials
-│   ├── contact/            # Direct email copy, mailto & verified social profiles
-│   └── resume/             # Interactive & print-optimized A4 PDF resume
-├── components/
-│   ├── brand/              # Custom HSLogo monogram
-│   ├── chat/               # ChatWorkspace, WelcomeScreen, RecommendationCards, MessageList, Composer
-│   ├── layout/             # AppLayout, Sidebar, ConversationHistory, ChatHeader, LanguageSwitcher
-│   └── resume/             # ProjectCard, ProjectDetailView, ExperienceTimeline, SkillsSection, ResumeView
-├── context/                # ThemeContext, LanguageContext, ChatContext
-├── data/                   # Central source of truth: resume.ts, projects.ts, recommendations.ts, translations.ts
-├── lib/                    # chat-engine.ts, storage.ts, utils.ts
-├── test/                   # Automated unit, component & conversational flow tests
-└── types/                  # TypeScript interfaces
-```
+Full-Stack Developer with **5+ years of experience** building data-driven web applications across **FinTech, ERP, and SaaS**. Experienced in shipping production features used by **4,000+ active users**, real-time dashboards tracking **200+ daily transactions**, end-to-end online invoicing flows, and automated accounting systems backed by clean TypeScript architectures.
+
+- **4,000+ active FinTech users** served in production at [Paystar](https://paystar.ir), building **60%+** of the online invoicing app and increasing wallet checkout engagement by **40%**.
+- **15,000+ installs** on Cafe Bazaar for the **Mangro** accounting app (built in a team of 3).
+- **16-module open-source ERP** ([Rahkar ERP](https://github.com/hoseinsedaqat/RahkarERP)) with automated double-entry accounting, 10 calculation engines, and 78 REST API routes.
+- **57,000+ developers reached** on [Stack Overflow](https://stackoverflow.com/users/14983011/hosein-sedaqat) and **45 public repositories** on GitHub.
 
 ---
 
-## Getting Started
+## Work Experience
 
-### Prerequisites
+### Full-Stack Developer · Freelancer
+*Jan 2026 – Present · Bandar Abbas, Iran · Hybrid*
 
-- **Node.js** `>= 20.x` (tested on Node 22)
-- **npm** `>= 10.x`
+- Built the **Mangro** accounting application in a team of 3 and published it on Cafe Bazaar, reaching **15,000+ installs**.
+- Architected and launched **[Rahkar ERP](https://github.com/hoseinsedaqat/RahkarERP)** with **16 operational and financial modules** that automatically post balanced double-entry accounting records from every sales invoice, purchase order, and warehouse movement.
+- **Stack:** `React` · `TypeScript` · `Node.js` · `GraphQL` · `PHP` · `Docker` · `Unit Testing` · `Prompt Engineering` · `Git`
 
-### Installation & Local Development
+### Front-End Developer · [Paystar](https://paystar.ir)
+*May 2022 – May 2025 (3 yrs 1 mo) · Tehran, Iran · Remote · Full-time*
 
-```bash
-npm install
-npm run dev
-```
+- Shipped production FinTech payment, wallet, and merchant dashboard features used by **4,000+ active users** in a 5-engineer team.
+- Developed **over 60%** of the online invoicing web application enabling merchants to create, send, and manage invoices in production.
+- Redesigned the wallet payment flow, increasing user engagement by **40%**.
+- **Stack:** `TypeScript` · `Vue.js` · `Nuxt.js` · `Vuex` · `React` · `Redux` · `Laravel` · `PHP` · `REST API` · `MySQL` · `Chart.js` · `Unit Testing`
 
-Open `http://localhost:3000` in your browser.
+### Front-End Developer · [National Publishing & Advertising (NPA)](https://npa.om/)
+*Feb 2022 – Apr 2022 (3 mos) · Muscat, Oman · Remote · Contract*
 
-### Environment Variables (Optional)
+- Streamlined responsive interfaces across desktop and mobile for a publishing and event platform in Muscat, including the **Oman Social Media Week** event portal.
+- Delivered new frontend features in a 3-person team to improve platform usability and page responsiveness.
+- **Stack:** `Vue.js` · `Vuex` · `JavaScript (ES6+)` · `HTML5` · `CSS3` · `Bootstrap` · `Git`
 
-Copy `.env.example` to `.env.local` if you want to enable optional server-side LLM responses or increase GitHub API rate limits:
+### Front-End Developer · Freelancer
+*Jun 2020 – Jan 2022 (1 yr 8 mos) · Bandar Abbas, Iran · Remote · Full-time*
 
-```bash
-cp .env.example .env.local
-```
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `OPENAI_API_KEY` | No | Server-only API key for optional LLM prose generation grounded in the knowledge base. Leaves local engine active when empty. |
-| `OPENAI_BASE_URL` | No | OpenAI-compatible base URL (defaults to `https://api.openai.com/v1`). |
-| `OPENAI_MODEL` | No | Model identifier (defaults to `gpt-4o-mini`). |
-| `GITHUB_TOKEN` | No | Optional GitHub token for higher server-side rate limits on `/api/github`. |
-| `NEXT_PUBLIC_SITE_URL` | No | Canonical URL for OpenGraph & `sitemap.xml` (defaults to `https://hoseinsedaqat.github.io`). |
-
----
-
-## Quality Checks & Testing
-
-```bash
-# TypeScript strict validation
-npm run typecheck
-
-# Run automated unit, component & chat-flow tests (Vitest)
-npm test
-
-# Build optimized production bundle
-npm run build
-
-# Start production server
-npm start
-```
+- Delivered **10+ responsive web applications** and localized multi-directional RTL/LTR UI themes.
+- Built a marketplace storefront inspired by Digikala achieving an **84/100** Google Lighthouse performance score.
+- Designed and launched the corporate website for **Mohabbat Studio** in a team of 2.
+- **Stack:** `Vue.js` · `Nuxt.js` · `Vuex` · `JavaScript (ES6+)` · `Tailwind CSS` · `Bootstrap` · `REST API`
 
 ---
 
-## Customizing Resume Content
+## Technical Skills
 
-All personal data is managed centrally without editing UI components:
-
-- **Profile, Experience, Skills, Education & Links:** `src/data/resume.ts`
-- **Featured Project Order & Case Studies:** `src/data/projects.ts` (`featuredProjectSlugs` array)
-- **Starter Prompts:** `src/data/recommendations.ts`
-- **Bilingual UI Strings (`EN` / `FA`):** `src/data/translations.ts`
-
----
-
-## Deployment
-
-### GitHub Pages (Configured Automatically via GitHub Actions)
-
-This repository is configured with Next.js static export (`output: 'export'`, `trailingSlash: true`, `public/.nojekyll`) and includes `.github/workflows/deploy.yml`:
-
-1. In your GitHub repository, open **Settings → Pages → Build and deployment**.
-2. Set **Source** to **GitHub Actions** (instead of *Deploy from a branch*, which otherwise renders `README.md`).
-3. Every push or merged pull request to `master` automatically runs `npm ci && npm run build` and deploys `./out` to `https://hoseinsedaqat.github.io/`.
-
-### Vercel / Netlify
-
-1. Import `hoseinsedaqat/hoseinsedaqat.github.io`.
-2. Build Command: `npm run build` · Output Directory: `out`.
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | React, Next.js (App Router, SSG/SSR), Vue.js, Nuxt.js, TypeScript, JavaScript (ES6+), Tailwind CSS, Redux Toolkit, Pinia, Vuex, Chart.js |
+| **Backend** | Node.js, Express, NestJS, GraphQL, REST APIs, PHP, Laravel, JWT & RBAC Authentication |
+| **Databases** | PostgreSQL, MySQL, MongoDB, Redis |
+| **Testing** | Vitest, Jest, React Testing Library, Cypress |
+| **AI & Automation** | Prompt Engineering, OpenAI API, LangChain |
+| **DevOps & Tools** | Docker, Git, GitHub Actions (CI/CD), Vercel, Netlify, Postman, Vite, PWA & WebExtensions (Manifest V3) |
 
 ---
 
-## Links
+## Selected Projects
 
-- **GitHub:** [github.com/hoseinsedaqat](https://github.com/hoseinsedaqat)
-- **LinkedIn:** [linkedin.com/in/hoseinsedaqat](https://www.linkedin.com/in/hoseinsedaqat/)
-- **Email:** [hsedaqat1378@gmail.com](mailto:hsedaqat1378@gmail.com)
+| Project | Description | Stack | Links |
+| :--- | :--- | :--- | :--- |
+| **Rahkar ERP** | Self-hostable 16-module ERP built around an automated double-entry ledger, 10 calculation engines, 78 REST APIs, and dual JSON/PostgreSQL (31 tables) storage. | `TypeScript`, `Node.js`, `Vite`, `PostgreSQL`, `Vitest`, `PWA` | [Live Demo](https://rahkar-erp.netlify.app/) · [Source](https://github.com/hoseinsedaqat/RahkarERP) |
+| **CargoCraft** | Multi-domain enterprise ERP, finance, invoicing, HR, and Leaflet route-mapping analytics dashboard. | `Next.js 15`, `React 19`, `TypeScript`, `Tailwind CSS`, `Recharts` | [Live Demo](https://cargocraftdashboard.netlify.app/) · [Source](https://github.com/hoseinsedaqat/cargocraft-dashboard-analysis) |
+| **Tishra Analyzer** | Privacy-first browser extension published on Mozilla Add-ons for 100% local SEO scoring, SERP preview, and security header audits. | `React 19`, `TypeScript`, `Tailwind CSS 4`, `Manifest V3` | [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/tishra-analyzer/) · [Source](https://github.com/hoseinsedaqat/TishraAnalayzer) |
+| **EchShopy** | RTL e-commerce marketplace prototype featuring flash-deal carousels, category catalogs, cart state, and validated auth forms. | `Vue.js`, `Vuex`, `Vue Router`, `Vuelidate` | [Live Demo](https://echshopy.netlify.app/) · [Source](https://github.com/hoseinsedaqat/EchShopy) |
+| **Wavezon** | Multi-category e-commerce storefront UI study exploring catalog routing, product galleries, and cart flows. | `React`, `React Router v6`, `CSS3` | [Live Demo](https://wavezon.netlify.app/) · [Source](https://github.com/hoseinsedaqat/Wavezon) |
+| **Neweet** | Social microblogging UI prototype built to explore Next.js App Router layouts, dynamic messaging routes, and Redux slices. | `Next.js`, `TypeScript`, `Redux Toolkit`, `Bootstrap 5` | [Live Demo](https://neweet.netlify.app/) · [Source](https://github.com/hoseinsedaqat/Neweet) |
+| **EchGram** | Cross-platform social feed prototype packaged as both an installable Web PWA and an Electron desktop build. | `Vue.js`, `TypeScript`, `Electron`, `PWA` | [Live Demo](https://echgram.netlify.app/) · [Source](https://github.com/hoseinsedaqat/EchGram) |
+| **EchMail** | Modular webmail & workspace UI study (Mail, Contacts, Notes, Calendar) with persisted Pinia state and Jest unit tests. | `Vue 3`, `Pinia`, `VeeValidate`, `Jest`, `PWA` | [Live Demo](https://echmail.netlify.app/) · [Source](https://github.com/hoseinsedaqat/EchMail) |
+
+> Browse full architectural case studies and screenshots on **[hoseinsedaqat.github.io/projects](https://hoseinsedaqat.github.io/projects/)**.
+
+---
+
+## Education
+
+**Bachelor of Science in Industrial Engineering**
+*University of Sistan and Baluchestan · Jan 2018 – Sep 2023*
+Focus on systems analysis, process optimization, and data-driven engineering.
+
+---
+
+## Licenses & Certifications
+
+All credentials issued by **Sololearn** (also listed on [LinkedIn Certifications](https://www.linkedin.com/in/hoseinsedaqat/details/certifications/)):
+
+| Course | Issued | Credential ID | Certificate |
+| :--- | :--- | :--- | :--- |
+| **React + Redux Tutorial Course** | Aug 2022 | `CT-BVO7P03Z` | [View Certificate](https://www.sololearn.com/Certificate/CT-BVO7P03Z/jpg) |
+| **Responsive Web Design Course** | Apr 2021 | `1162-21427246` | [View Certificate](https://www.sololearn.com/Certificate/1162-21427246/jpg) |
+| **JQuery Tutorial Course** | Apr 2021 | `1082-21427246` | [View Certificate](https://www.sololearn.com/Certificate/1082-21427246/jpg) |
+| **JavaScript Tutorial Course** | Mar 2021 | `21427246-1024` | [View Certificate](https://www.sololearn.com/Certificate/21427246-1024/jpg) |
+| **CSS Fundamentals Course** | Mar 2021 | `1023-21427246` | [View Certificate](https://www.sololearn.com/Certificate/1023-21427246/jpg) |
+| **HTML Fundamentals Course** | Mar 2021 | `1014-21427246` | [View Certificate](https://www.sololearn.com/Certificate/1014-21427246/jpg) |
+
+---
+
+## Technical Writing
+
+- **[Building Tishra Analyzer: How I Created a Privacy-First SEO & Security Extension](https://dev.to/hoseinsedaqat/building-tishra-analyzer-how-i-created-a-privacy-first-seo-security-extension-16j3)** — *DEV Community & Medium (Feb 2026)*
+- **[How Can We Be More Efficient as Developers](https://dev.to/hoseinsedaqat/how-can-we-be-more-efficient-as-developers-51he)** — *DEV Community & Medium (Aug 2025)*
+
+---
+
+## Languages
+
+- **English** — Professional working proficiency
+- **Persian** — Native or bilingual proficiency
+
+---
+
+<div align="center">
+  <sub>Interactive Conversational Portfolio & A4 PDF Resume: <a href="https://hoseinsedaqat.github.io/"><strong>hoseinsedaqat.github.io</strong></a></sub>
+</div>
