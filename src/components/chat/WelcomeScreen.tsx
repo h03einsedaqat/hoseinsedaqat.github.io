@@ -65,10 +65,8 @@ function TypewriterGreeting({ text }: { text: string }) {
   }, [displayed, phase, text]);
 
   return (
-    <h1
-      aria-label={text}
-      className="flex min-h-[3.25rem] max-w-xl items-center justify-center text-lg font-semibold leading-snug tracking-tight text-ink sm:min-h-[2.5rem] sm:text-xl md:text-2xl"
-    >
+    <h1 className="flex min-h-[3.25rem] max-w-xl items-center justify-center text-lg font-semibold leading-snug tracking-tight text-ink sm:min-h-[2.5rem] sm:text-xl md:text-2xl">
+      <span className="sr-only">{text}</span>
       <span aria-hidden="true" className="inline-flex items-center">
         <span>{displayed}</span>
         <span className="ms-0.5 inline-block h-[1.08em] w-[2px] shrink-0 rounded-full bg-accent animate-cursor-blink" />

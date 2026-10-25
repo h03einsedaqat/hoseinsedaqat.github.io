@@ -61,10 +61,6 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html[lang='fa'] {
-  font-family: 'Vazirmatn', var(--font-sans);
-}
-
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);

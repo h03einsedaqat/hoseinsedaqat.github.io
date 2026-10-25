@@ -1050,7 +1050,7 @@ export const curatedProjects: ProjectItem[] = [
   {
     "slug": "kalamesaz",
     "name": {
-      "en": "Kalamesaz (کلمه‌ساز)",
+      "en": "Kalamesaz",
       "fa": "کلمه‌ساز (Kalamesaz)"
     },
     "tagline": {

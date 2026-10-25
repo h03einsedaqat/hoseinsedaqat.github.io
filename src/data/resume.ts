@@ -25,7 +25,7 @@ export const profileData: ProfileData = {
     fa: 'توسعه‌دهنده‌ی Full-Stack | React · Next.js · Node.js · TypeScript',
   },
   welcomeGreeting: {
-    en: "Hi, I'm Hosein Sedaqat — Full-Stack Developer.",
+    en: "Hi, I'm Hosein Sedaqat · Full-Stack Developer",
     fa: 'سلام، من حسین صداقت هستم — توسعه‌دهنده‌ی Full-Stack.',
   },
   welcomeSubtitle: {
@@ -235,7 +235,7 @@ export const experienceItems: ExperienceItem[] = [
       fa: 'توسعه‌دهنده‌ی فرانت‌اند',
     },
     company: {
-      en: 'Paystar | پی‌استار',
+      en: 'Paystar',
       fa: 'پی‌استار (Paystar)',
     },
     companyUrl: 'https://paystar.ir',
@@ -311,9 +311,10 @@ export const experienceItems: ExperienceItem[] = [
       fa: 'توسعه‌دهنده‌ی فرانت‌اند',
     },
     company: {
-      en: 'National Publishing & Advertising',
-      fa: 'National Publishing & Advertising',
+      en: 'National Publishing & Advertising (NPA)',
+      fa: 'National Publishing & Advertising (NPA)',
     },
+    companyUrl: 'https://npa.om/',
     location: {
       en: 'Muscat, Oman · Remote',
       fa: 'مسقط، عمان · دورکاری',
@@ -537,7 +538,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Aug 2022', fa: 'آگوست ۲۰۲۲' },
     credentialId: 'CT-BVO7P03Z',
-    url: 'https://www.sololearn.com/certificates/CT-BVO7P03Z',
+    url: 'https://www.sololearn.com/Certificate/CT-BVO7P03Z/jpg',
   },
   {
     id: 'sololearn-rwd',
@@ -545,7 +546,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Apr 2021', fa: 'آوریل ۲۰۲۱' },
     credentialId: '1162-21427246',
-    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+    url: 'https://www.sololearn.com/Certificate/1162-21427246/jpg',
   },
   {
     id: 'sololearn-jquery',
@@ -553,7 +554,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Apr 2021', fa: 'آوریل ۲۰۲۱' },
     credentialId: '1082-21427246',
-    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+    url: 'https://www.sololearn.com/Certificate/1082-21427246/jpg',
   },
   {
     id: 'sololearn-javascript',
@@ -561,7 +562,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
     credentialId: '21427246-1024',
-    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+    url: 'https://www.sololearn.com/Certificate/21427246-1024/jpg',
   },
   {
     id: 'sololearn-css',
@@ -569,7 +570,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
     credentialId: '1023-21427246',
-    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+    url: 'https://www.sololearn.com/Certificate/1023-21427246/jpg',
   },
   {
     id: 'sololearn-html',
@@ -577,7 +578,7 @@ export const certifications: CertificationItem[] = [
     issuer: 'Sololearn',
     issuedDate: { en: 'Issued Mar 2021', fa: 'مارس ۲۰۲۱' },
     credentialId: '1014-21427246',
-    url: 'https://www.linkedin.com/in/hoseinsedaqat/details/certifications/',
+    url: 'https://www.sololearn.com/Certificate/1014-21427246/jpg',
   },
 ];
 
