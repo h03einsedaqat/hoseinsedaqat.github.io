@@ -13,36 +13,33 @@ import { uiTranslations } from '@/data/translations';
 import { generateLocalAssistantResponse } from '@/lib/chat-engine';
 
 describe('Resume Knowledge Base & Conversational Engine', () => {
-  it('provides exactly the 10 starter recommendation prompts in English & Persian', () => {
+  it('provides 10 natural, human-sounding starter questions in English', () => {
     expect(recommendationPrompts).toHaveLength(10);
     expect(recommendationPrompts.map((p) => p.prompt.en)).toEqual([
-      'Tell me about yourself',
-      'Explore my projects',
-      'Show me my professional experience',
-      'What are my strongest technical skills?',
-      'Tell me about Rahkar ERP',
-      'How have I contributed to real products?',
-      'Why should your team hire me?',
-      'Show me my GitHub projects',
-      'What makes my portfolio different?',
-      'How can you contact me?',
+      "What's your background?",
+      'What projects have you built?',
+      'Where have you worked before?',
+      "What's your main tech stack?",
+      'How does Rahkar ERP work?',
+      'What have you shipped to production?',
+      'What can you bring to a team?',
+      'Can I see your GitHub repos?',
+      'Why build a chat-style portfolio?',
+      'How can I reach you?',
     ]);
   });
 
-  it('answers every starter prompt with a relevant non-unknown intent in both EN and FA', () => {
+  it('routes every starter prompt to its exact intended topic', () => {
     for (const item of recommendationPrompts) {
-      const enRes = generateLocalAssistantResponse(item.prompt.en);
-      const faRes = generateLocalAssistantResponse(item.prompt.fa);
-
-      expect(enRes.intent).not.toBe('unknown');
-      expect(faRes.intent).not.toBe('unknown');
-      expect(enRes.content.en.length).toBeGreaterThan(30);
-      expect(faRes.content.fa.length).toBeGreaterThan(30);
+      const res = generateLocalAssistantResponse(item.prompt.en);
+      expect(res.intent).not.toBe('unknown');
+      expect(res.intent).toBe(item.intentHint);
+      expect(res.content.en.length).toBeGreaterThan(25);
     }
   });
 
   it('returns detailed architecture & live demo link when asked about Rahkar ERP', () => {
-    const res = generateLocalAssistantResponse('Tell me about Rahkar ERP');
+    const res = generateLocalAssistantResponse('How does Rahkar ERP work?');
     expect(res.intent).toBe('rahkar');
     expect(res.blocks?.some((b) => b.type === 'project-detail' && b.slug === 'rahkar-erp')).toBe(
       true
@@ -85,6 +82,12 @@ describe('Resume Knowledge Base & Conversational Engine', () => {
     // Verified LinkedIn facts & all 6 Sololearn certifications
     expect(experienceItems).toHaveLength(4);
     expect(experienceItems[0].period.en).toContain('Jan 2026');
+    const paystar = experienceItems.find((e) => e.id === 'paystar');
+    const npa = experienceItems.find((e) => e.id === 'npa-oman');
+    expect(paystar?.companyUrl).toBe('https://paystar.ir');
+    expect(npa?.company.en).toBe('National Publishing & Advertising (NPA)');
+    expect(npa?.companyUrl).toBe('https://npa.om/');
+    expect(generateLocalAssistantResponse('Tell me about NPA in Oman').intent).toBe('experience');
     expect(experienceItems[1].period.en).toContain('May 2022 – May 2025');
     expect(educationItems[0].degree.en).toContain('Industrial Engineering');
     expect(certifications).toHaveLength(6);
@@ -96,6 +99,9 @@ describe('Resume Knowledge Base & Conversational Engine', () => {
       '1023-21427246',
       '1014-21427246',
     ]);
+    for (const cert of certifications) {
+      expect(cert.url).toBe(`https://www.sololearn.com/Certificate/${cert.credentialId}/jpg`);
+    }
 
     // Pinned GitHub projects come first and all projects have cover images
     expect(curatedProjects.slice(0, 6).map((p) => p.slug)).toEqual([
@@ -122,8 +128,6 @@ describe('Resume Knowledge Base & Conversational Engine', () => {
 
     // Concise nav labels
     expect(uiTranslations.en.navEducation).toBe('Education');
-    expect(uiTranslations.fa.navEducation).toBe('تحصیلات');
     expect(uiTranslations.en.navResume).toBe('Resume');
-    expect(uiTranslations.fa.navResume).toBe('رزومه');
   });
 });

@@ -4,16 +4,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'about-me',
     prompt: {
-      en: 'Tell me about yourself',
-      fa: 'درباره خودت برایم بگو',
+      en: "What's your background?",
+      fa: "What's your background?",
     },
     shortLabel: {
-      en: 'Tell me about yourself',
-      fa: 'معرفی حرفه‌ای من',
+      en: "What's your background?",
+      fa: "What's your background?",
     },
     hint: {
-      en: 'Background, full-stack focus & engineering approach',
-      fa: 'پیشینه، تمرکز فنی و دیدگاه مهندسی',
+      en: '5+ years in FinTech, SaaS & full-stack web',
+      fa: '5+ years in FinTech, SaaS & full-stack web',
     },
     iconName: 'user',
     intentHint: 'about',
@@ -21,16 +21,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'explore-projects',
     prompt: {
-      en: 'Explore my projects',
-      fa: 'پروژه‌های منتخب من را نشان بده',
+      en: 'What projects have you built?',
+      fa: 'What projects have you built?',
     },
     shortLabel: {
-      en: 'Explore my projects',
-      fa: 'بررسی پروژه‌های منتخب',
+      en: 'What projects have you built?',
+      fa: 'What projects have you built?',
     },
     hint: {
-      en: 'Curated ERP, dashboards, extension & mobile apps',
-      fa: 'ERP، داشبوردهای سازمانی، افزونه و اپ موبایل',
+      en: 'Rahkar ERP, web apps, dashboards & tools',
+      fa: 'Rahkar ERP, web apps, dashboards & tools',
     },
     iconName: 'folder-git',
     intentHint: 'projects',
@@ -38,16 +38,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'professional-experience',
     prompt: {
-      en: 'Show me my professional experience',
-      fa: 'سوابق کاری و حرفه‌ای من را نمایش بده',
+      en: 'Where have you worked before?',
+      fa: 'Where have you worked before?',
     },
     shortLabel: {
-      en: 'Show me my professional experience',
-      fa: 'سوابق شغلی و تجربیات',
+      en: 'Where have you worked before?',
+      fa: 'Where have you worked before?',
     },
     hint: {
-      en: 'Paystar FinTech role, timeline & key outcomes',
-      fa: 'تجربه فین‌تک در پی‌استار و مسیر حرفه‌ای',
+      en: 'Paystar, NPA (Oman) & freelance roles',
+      fa: 'Paystar, NPA (Oman) & freelance roles',
     },
     iconName: 'briefcase',
     intentHint: 'experience',
@@ -55,16 +55,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'strongest-skills',
     prompt: {
-      en: 'What are my strongest technical skills?',
-      fa: 'قوی‌ترین مهارت‌های فنی من کدام‌اند؟',
+      en: "What's your main tech stack?",
+      fa: "What's your main tech stack?",
     },
     shortLabel: {
-      en: 'What are my strongest technical skills?',
-      fa: 'قوی‌ترین مهارت‌های فنی',
+      en: "What's your main tech stack?",
+      fa: "What's your main tech stack?",
     },
     hint: {
-      en: 'React, Next.js, Vue 3, TypeScript, Node.js & testing',
-      fa: 'React، Next.js، Vue 3، TypeScript، Node.js و تست',
+      en: 'React, Next.js, Vue, TypeScript & Node.js',
+      fa: 'React, Next.js, Vue, TypeScript & Node.js',
     },
     iconName: 'cpu',
     intentHint: 'skills',
@@ -72,16 +72,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'rahkar-erp',
     prompt: {
-      en: 'Tell me about Rahkar ERP',
-      fa: 'درباره پروژه Rahkar ERP توضیح بده',
+      en: 'How does Rahkar ERP work?',
+      fa: 'How does Rahkar ERP work?',
     },
     shortLabel: {
-      en: 'Tell me about Rahkar ERP',
-      fa: 'آشنایی با Rahkar ERP',
+      en: 'How does Rahkar ERP work?',
+      fa: 'How does Rahkar ERP work?',
     },
     hint: {
-      en: '16-module Persian ERP, 78 APIs & accounting engine',
-      fa: 'ERP فارسی با ۱۶ ماژول، ۷۸ مسیر API و هسته مالی',
+      en: '16 modules, double-entry ledger & 78 APIs',
+      fa: '16 modules, double-entry ledger & 78 APIs',
     },
     iconName: 'layers',
     intentHint: 'rahkar',
@@ -89,16 +89,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'real-products',
     prompt: {
-      en: 'How have I contributed to real products?',
-      fa: 'چگونه در ساخت محصولات واقعی مشارکت داشته‌ام؟',
+      en: 'What have you shipped to production?',
+      fa: 'What have you shipped to production?',
     },
     shortLabel: {
-      en: 'How have I contributed to real products?',
-      fa: 'مشارکت در محصولات واقعی',
+      en: 'What have you shipped to production?',
+      fa: 'What have you shipped to production?',
     },
     hint: {
-      en: 'FinTech payment flows, shipped tools & open source',
-      fa: 'جریان‌های پرداخت، ابزارهای منتشرشده و متن‌باز',
+      en: 'Paystar (4k+ users) & Mangro (15k+ installs)',
+      fa: 'Paystar (4k+ users) & Mangro (15k+ installs)',
     },
     iconName: 'rocket',
     intentHint: 'contributions',
@@ -106,16 +106,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'why-hire',
     prompt: {
-      en: 'Why should your team hire me?',
-      fa: 'چرا تیم شما باید من را استخدام کند؟',
+      en: 'What can you bring to a team?',
+      fa: 'What can you bring to a team?',
     },
     shortLabel: {
-      en: 'Why should your team hire me?',
-      fa: 'چرا همکاری با من؟',
+      en: 'What can you bring to a team?',
+      fa: 'What can you bring to a team?',
     },
     hint: {
-      en: 'Evidence-backed value for Frontend & Full-Stack teams',
-      fa: 'ارزش فنی مستند برای تیم‌های Frontend و Full-Stack',
+      en: 'Frontend speed, backend ownership & clean code',
+      fa: 'Frontend speed, backend ownership & clean code',
     },
     iconName: 'check-circle',
     intentHint: 'why-hire',
@@ -123,16 +123,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'github-projects',
     prompt: {
-      en: 'Show me my GitHub projects',
-      fa: 'پروژه‌های گیت‌هاب من را نشان بده',
+      en: 'Can I see your GitHub repos?',
+      fa: 'Can I see your GitHub repos?',
     },
     shortLabel: {
-      en: 'Show me my GitHub projects',
-      fa: 'مخازن گیت‌هاب من',
+      en: 'Can I see your GitHub repos?',
+      fa: 'Can I see your GitHub repos?',
     },
     hint: {
-      en: '45 public repositories, live demos & source code',
-      fa: '۴۵ مخزن عمومی، دموهای زنده و سورس‌کدها',
+      en: '45 public repositories, source code & demos',
+      fa: '45 public repositories, source code & demos',
     },
     iconName: 'github',
     intentHint: 'github-projects',
@@ -140,16 +140,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'portfolio-different',
     prompt: {
-      en: 'What makes my portfolio different?',
-      fa: 'چه چیزی پورتفولیوی من را متمایز می‌کند؟',
+      en: 'Why build a chat-style portfolio?',
+      fa: 'Why build a chat-style portfolio?',
     },
     shortLabel: {
-      en: 'What makes my portfolio different?',
-      fa: 'تمایز این پورتفولیو',
+      en: 'Why build a chat-style portfolio?',
+      fa: 'Why build a chat-style portfolio?',
     },
     hint: {
-      en: 'Conversational UX, verified data & full-stack craft',
-      fa: 'تجربه گفت‌وگومحور، داده‌های مستند و دقت مهندسی',
+      en: 'Fast answers, real data & zero filler',
+      fa: 'Fast answers, real data & zero filler',
     },
     iconName: 'sparkles',
     intentHint: 'portfolio-different',
@@ -157,16 +157,16 @@ export const recommendationPrompts: RecommendationPrompt[] = [
   {
     id: 'contact-me',
     prompt: {
-      en: 'How can you contact me?',
-      fa: 'چطور می‌توانید با من در ارتباط باشید؟',
+      en: 'How can I reach you?',
+      fa: 'How can I reach you?',
     },
     shortLabel: {
-      en: 'How can you contact me?',
-      fa: 'راه‌های ارتباط با من',
+      en: 'How can I reach you?',
+      fa: 'How can I reach you?',
     },
     hint: {
-      en: 'Direct email, LinkedIn, GitHub & professional links',
-      fa: 'ایمیل مستقیم، لینکدین، گیت‌هاب و شبکه‌های حرفه‌ای',
+      en: 'Email, LinkedIn & GitHub links',
+      fa: 'Email, LinkedIn & GitHub links',
     },
     iconName: 'mail',
     intentHint: 'contact',

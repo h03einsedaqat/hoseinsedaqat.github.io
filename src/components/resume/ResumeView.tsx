@@ -7,7 +7,6 @@ import { ArrowLeft, ArrowRight, Printer } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { getFeaturedProjects } from '@/data/projects';
 import {
-  certificationNote,
   certifications,
   educationItems,
   experienceItems,
@@ -141,9 +140,20 @@ export function ResumeView() {
                       {tText(exp.role, locale)}
                     </span>
                     <span className="mx-1.5 text-ink-muted">·</span>
-                    <span className="text-sm font-medium text-ink-secondary print:text-neutral-800">
-                      {tText(exp.company, locale)}
-                    </span>
+                    {exp.companyUrl ? (
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-ink-secondary underline-offset-2 hover:text-ink hover:underline print:text-neutral-800"
+                      >
+                        {tText(exp.company, locale)}
+                      </a>
+                    ) : (
+                      <span className="text-sm font-medium text-ink-secondary print:text-neutral-800">
+                        {tText(exp.company, locale)}
+                      </span>
+                    )}
                   </div>
                   <span className="text-xs text-ink-muted print:text-neutral-600">
                     {tText(exp.period, locale)}
@@ -239,10 +249,21 @@ export function ResumeView() {
             <ul className="space-y-0.5 text-[11px] text-ink-muted print:text-neutral-600">
               {certifications.map((c) => (
                 <li key={c.id} dir="ltr" className="text-start">
-                  • {c.title} — {c.issuer} ({c.credentialId})
+                  • {c.title} — {c.issuer}{' '}
+                  {c.url ? (
+                    <a
+                      href={c.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline-offset-2 hover:text-ink hover:underline print:text-neutral-700"
+                    >
+                      ({c.credentialId})
+                    </a>
+                  ) : (
+                    <span>({c.credentialId})</span>
+                  )}
                 </li>
               ))}
-              <li>• {tText(certificationNote.title, locale)}</li>
             </ul>
           </section>
 

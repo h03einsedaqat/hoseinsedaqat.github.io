@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Check, Languages, Moon, Settings, Sun, Trash2, X } from 'lucide-react';
+import { Check, Moon, Settings, Sun, Trash2, X } from 'lucide-react';
 import { useChat } from '@/context/ChatContext';
 import { useLanguage } from '@/context/LanguageContext';
 import { useTheme } from '@/context/ThemeContext';
@@ -14,7 +14,7 @@ interface SettingsModalProps {
 
 export function SettingsModal({ open, onClose }: SettingsModalProps) {
   const { theme, setTheme } = useTheme();
-  const { locale, setLocale, ui } = useLanguage();
+  const { ui } = useLanguage();
   const { conversations, clearAllConversations } = useChat();
   const [confirmClear, setConfirmClear] = useState(false);
 
@@ -138,124 +138,62 @@ export function SettingsModal({ open, onClose }: SettingsModalProps) {
             </div>
           </div>
 
-          {/* 2. Language & Direction */}
-          <div className="space-y-3 py-4">
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <div className="flex items-center gap-1.5 text-sm font-semibold text-ink">
-                  <Languages className="h-4 w-4 text-ink-muted" aria-hidden="true" />
-                  <span>{ui.languageSectionTitle}</span>
-                </div>
-                <p className="mt-0.5 text-xs text-ink-muted">{ui.languageSectionDesc}</p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {/* English (LTR) */}
-              <button
-                type="button"
-                onClick={() => setLocale('en')}
-                aria-pressed={locale === 'en'}
-                className={cn(
-                  'flex items-center justify-between gap-2 rounded-xl border p-3 text-start transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30',
-                  locale === 'en'
-                    ? 'border-accent bg-accent-soft text-ink'
-                    : 'border-line bg-canvas/70 text-ink-secondary hover:border-line-strong hover:bg-hover hover:text-ink'
-                )}
-              >
-                <span className="min-w-0">
-                  <span dir="ltr" className="block text-xs font-semibold text-ink">
-                    English
-                  </span>
-                  <span className="mt-0.5 block truncate text-[11px] text-ink-muted">
-                    {ui.englishOptionDesc}
-                  </span>
-                </span>
-                {locale === 'en' && (
-                  <Check className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                )}
-              </button>
-
-              {/* Persian (RTL) */}
-              <button
-                type="button"
-                onClick={() => setLocale('fa')}
-                aria-pressed={locale === 'fa'}
-                className={cn(
-                  'flex items-center justify-between gap-2 rounded-xl border p-3 text-start transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30',
-                  locale === 'fa'
-                    ? 'border-accent bg-accent-soft text-ink'
-                    : 'border-line bg-canvas/70 text-ink-secondary hover:border-line-strong hover:bg-hover hover:text-ink'
-                )}
-              >
-                <span className="min-w-0">
-                  <span className="block text-xs font-semibold text-ink">فارسی</span>
-                  <span className="mt-0.5 block truncate text-[11px] text-ink-muted">
-                    {ui.persianOptionDesc}
-                  </span>
-                </span>
-                {locale === 'fa' && (
-                  <Check className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
-                )}
-              </button>
-            </div>
-          </div>
-
-          {/* 3. Saved Chat History Management */}
-          <div className="flex flex-wrap items-center justify-between gap-3 py-4">
-            <div className="min-w-0 flex-1">
+          {/* 2. Local Conversation History */}
+          <div className="flex items-center justify-between gap-4 py-4">
+            <div className="min-w-0">
               <div className="text-sm font-semibold text-ink">
                 {ui.chatDataSectionTitle}
               </div>
-              <p className="mt-0.5 text-xs text-ink-muted">
-                {ui.chatDataSectionDesc} ({conversations.length})
-              </p>
+              <p className="mt-0.5 text-xs text-ink-muted">{ui.chatDataSectionDesc}</p>
             </div>
 
-            {conversations.length > 0 && (
-              <div>
-                {!confirmClear ? (
+            {conversations.length > 0 ? (
+              !confirmClear ? (
+                <button
+                  type="button"
+                  onClick={() => setConfirmClear(true)}
+                  className="inline-flex shrink-0 items-center gap-1.5 rounded-xl border border-line bg-canvas px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-500"
+                >
+                  <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
+                  <span>
+                    {ui.clearAllChats} ({conversations.length})
+                  </span>
+                </button>
+              ) : (
+                <div className="flex shrink-0 items-center gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setConfirmClear(true)}
-                    className="inline-flex items-center gap-1.5 rounded-xl border border-line bg-canvas px-3 py-1.5 text-xs font-medium text-ink-secondary transition-colors hover:border-red-500/40 hover:bg-red-500/10 hover:text-red-500"
+                    onClick={() => {
+                      clearAllConversations();
+                      setConfirmClear(false);
+                    }}
+                    className="rounded-lg bg-red-600 px-2.5 py-1.5 text-xs font-semibold text-white hover:bg-red-700"
                   >
-                    <Trash2 className="h-3.5 w-3.5" aria-hidden="true" />
-                    <span>{ui.clearAllChats}</span>
+                    {ui.confirmClearAll}
                   </button>
-                ) : (
-                  <div className="flex items-center gap-1.5">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        clearAllConversations();
-                        setConfirmClear(false);
-                      }}
-                      className="inline-flex items-center gap-1 rounded-xl bg-red-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-red-600"
-                    >
-                      <Check className="h-3.5 w-3.5" />
-                      <span>{ui.confirmClearAll}</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setConfirmClear(false)}
-                      className="rounded-xl border border-line bg-canvas px-2.5 py-1.5 text-xs text-ink-muted hover:bg-hover hover:text-ink"
-                    >
-                      {ui.cancel}
-                    </button>
-                  </div>
-                )}
-              </div>
+                  <button
+                    type="button"
+                    onClick={() => setConfirmClear(false)}
+                    className="rounded-lg border border-line px-2.5 py-1.5 text-xs text-ink-secondary hover:bg-hover"
+                  >
+                    {ui.cancel}
+                  </button>
+                </div>
+              )
+            ) : (
+              <span className="shrink-0 rounded-lg border border-line bg-canvas/60 px-2.5 py-1 text-[11px] text-ink-muted">
+                0
+              </span>
             )}
           </div>
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-end border-t border-line bg-canvas/40 px-5 py-3">
+        <div className="flex items-center justify-end border-t border-line bg-canvas/50 px-5 py-3">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl bg-ink px-4 py-2 text-xs font-semibold text-canvas transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
+            className="rounded-xl bg-ink px-4 py-1.5 text-xs font-semibold text-canvas transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30"
           >
             {ui.doneLabel}
           </button>

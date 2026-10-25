@@ -3,7 +3,6 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { MessageComposer } from '@/components/chat/MessageComposer';
 import { RecommendationCards } from '@/components/chat/RecommendationCards';
-import { LanguageSwitcher } from '@/components/layout/LanguageSwitcher';
 import { SettingsModal } from '@/components/layout/SettingsModal';
 import { Sidebar } from '@/components/layout/Sidebar';
 import { TopProgressBar } from '@/components/layout/TopProgressBar';
@@ -57,7 +56,7 @@ describe('Interactive UI Components', () => {
     expect(sendButton).toBeDisabled();
 
     // Valid text enables send
-    fireEvent.change(textarea, { target: { value: 'Tell me about Rahkar ERP' } });
+    fireEvent.change(textarea, { target: { value: 'How does Rahkar ERP work?' } });
     expect(sendButton).not.toBeDisabled();
 
     // Shift + Enter does NOT submit
@@ -67,33 +66,24 @@ describe('Interactive UI Components', () => {
     // Plain Enter submits and clears input
     fireEvent.keyDown(textarea, { key: 'Enter', shiftKey: false });
     expect(onSend).toHaveBeenCalledTimes(1);
-    expect(onSend).toHaveBeenCalledWith('Tell me about Rahkar ERP');
+    expect(onSend).toHaveBeenCalledWith('How does Rahkar ERP work?');
     expect(textarea.value).toBe('');
   });
 
-  it('LanguageSwitcher updates document lang & RTL/LTR direction and persists preference', () => {
+  it('LanguageProvider enforces English LTR and clears legacy hs-locale storage', () => {
+    window.localStorage.setItem('hs-locale', 'fa');
+    document.documentElement.lang = 'fa';
+    document.documentElement.dir = 'rtl';
+
     render(
       <LanguageProvider>
-        <LanguageSwitcher />
+        <div>English Only</div>
       </LanguageProvider>
     );
 
     expect(document.documentElement.lang).toBe('en');
     expect(document.documentElement.dir).toBe('ltr');
-
-    const faBtn = screen.getByRole('button', { name: 'فارسی' });
-    fireEvent.click(faBtn);
-
-    expect(document.documentElement.lang).toBe('fa');
-    expect(document.documentElement.dir).toBe('rtl');
-    expect(window.localStorage.getItem('hs-locale')).toBe('fa');
-
-    const enBtn = screen.getByRole('button', { name: 'EN' });
-    fireEvent.click(enBtn);
-
-    expect(document.documentElement.lang).toBe('en');
-    expect(document.documentElement.dir).toBe('ltr');
-    expect(window.localStorage.getItem('hs-locale')).toBe('en');
+    expect(window.localStorage.getItem('hs-locale')).toBeNull();
   });
 
   it('ThemeProvider toggles dark and light modes and persists to localStorage', () => {
@@ -123,9 +113,9 @@ describe('Interactive UI Components', () => {
       </LanguageProvider>
     );
 
-    const card = screen.getByRole('button', { name: /Tell me about Rahkar ERP/i });
+    const card = screen.getByRole('button', { name: /How does Rahkar ERP work\?/i });
     fireEvent.click(card);
-    expect(onSelect).toHaveBeenCalledWith('Tell me about Rahkar ERP');
+    expect(onSelect).toHaveBeenCalledWith('How does Rahkar ERP work?');
   });
 
   it('MessageComposer opens section suggestions on click or Ctrl+K and navigates on selection', () => {
@@ -163,7 +153,7 @@ describe('Interactive UI Components', () => {
     expect(screen.queryByRole('listbox')).not.toBeInTheDocument();
   });
 
-  it('Sidebar Settings button opens SettingsModal to change theme and language', () => {
+  it('Sidebar Settings button opens SettingsModal with Appearance & Chat controls and no Persian option', () => {
     render(
       <ThemeProvider>
         <LanguageProvider>
@@ -182,23 +172,19 @@ describe('Interactive UI Components', () => {
     const settingsBtn = screen.getByRole('button', { name: /Settings/i });
     fireEvent.click(settingsBtn);
 
-    // Dialog opens with Appearance & Language controls
+    // Dialog opens with Appearance controls and zero Persian/language switcher controls
     const dialog = screen.getByRole('dialog');
     expect(dialog).toBeInTheDocument();
+    expect(screen.queryByText(/فارسی/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/Language & Direction/i)).not.toBeInTheDocument();
 
     // Switch to Light mode inside Settings modal
     const lightBtn = screen.getByRole('button', { name: /Light mode/i });
     fireEvent.click(lightBtn);
     expect(document.documentElement.classList.contains('dark')).toBe(false);
 
-    // Switch to Persian (RTL) inside Settings modal
-    const faOption = screen.getByRole('button', { name: /فارسی/i });
-    fireEvent.click(faOption);
-    expect(document.documentElement.lang).toBe('fa');
-    expect(document.documentElement.dir).toBe('rtl');
-
-    // Close modal via Done button (now localized to Persian)
-    const doneBtn = screen.getByRole('button', { name: /تأیید و بستن/i });
+    // Close modal via Done button
+    const doneBtn = screen.getByRole('button', { name: /Done/i });
     fireEvent.click(doneBtn);
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });

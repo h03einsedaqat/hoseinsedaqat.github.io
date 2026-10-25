@@ -133,29 +133,28 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
     }
   }
 
-  // 2. Portfolio differentiation ("What makes my portfolio different?")
+  // 2. Portfolio differentiation ("Why build a chat-style portfolio?")
   if (
     normalized.includes('portfolio different') ||
+    normalized.includes('chat-style portfolio') ||
+    normalized.includes('why build') ||
     normalized.includes('makes your portfolio') ||
-    normalized.includes('makes my portfolio') ||
-    normalized.includes('تمایز') ||
-    normalized.includes('متمایز') ||
-    normalized.includes('فرقی')
+    normalized.includes('makes my portfolio')
   ) {
     return {
       intent: 'portfolio-different',
       content: {
-        en: 'This portfolio is built like a real product—interactive Q&A, pure-black ChatGPT UX, bilingual LTR/RTL support, and 100% verified metrics & live links.',
-        fa: 'این پورتفولیو خودش یک محصول واقعی است؛ گفت‌وگوی تعاملی، رابط کاربری به سبک ChatGPT، پشتیبانی دوزبانه (LTR/RTL) و آمار و لینک‌های ۱۰۰٪ واقعی.',
+        en: 'Instead of making visitors dig through long pages, you can jump straight to the exact project, stack, or work history you care about.',
+        fa: 'Instead of making visitors dig through long pages, you can jump straight to the exact project, stack, or work history you care about.',
       },
       bulletPoints: {
         en: [
-          'Real production metrics: 4,000+ FinTech users, 15,000+ app installs, 45 public repos.',
-          'Fast navigation via chat, Ctrl+K quick jump, or one-click A4 PDF resume.',
+          'Backed by real numbers: 4,000+ FinTech users, 15,000+ app installs, and 45 public repos.',
+          'Navigate via chat, Ctrl+K quick jump, or one-click A4 PDF resume.',
         ],
         fa: [
-          'آمار واقعی محصول: +۴٬۰۰۰ کاربر فعال فین‌تک، +۱۵٬۰۰۰ نصب اپلیکیشن و ۴۵ مخزن عمومی.',
-          'دسترسی سریع از طریق چت، شورتکات Ctrl+K و خروجی چاپی PDF رزومه.',
+          'Backed by real numbers: 4,000+ FinTech users, 15,000+ app installs, and 45 public repos.',
+          'Navigate via chat, Ctrl+K quick jump, or one-click A4 PDF resume.',
         ],
       },
       blocks: [
@@ -213,15 +212,13 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
     };
   }
 
-  // 4. Real product contributions ("How have I contributed to real products?")
+  // 4. Real product contributions ("What have you shipped to production?")
   if (
     normalized.includes('real product') ||
     normalized.includes('contributed') ||
+    normalized.includes('shipped') ||
     normalized.includes('production') ||
-    normalized.includes('mangro') ||
-    normalized.includes('محصولات واقعی') ||
-    normalized.includes('مشارکت') ||
-    normalized.includes('مانگرو')
+    normalized.includes('mangro')
   ) {
     return {
       intent: 'contributions',
@@ -255,15 +252,14 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
     };
   }
 
-  // 5. Why hire me ("Why should your team hire me?")
+  // 5. Why hire me ("What can you bring to a team?")
   if (
     normalized.includes('hire') ||
+    normalized.includes('bring to a team') ||
+    normalized.includes('bring to our team') ||
     normalized.includes('why should') ||
     normalized.includes('fit for') ||
-    normalized.includes('strength') ||
-    normalized.includes('استخدام') ||
-    normalized.includes('همکاری با من') ||
-    normalized.includes('مزیت')
+    normalized.includes('strength')
   ) {
     return {
       intent: 'why-hire',
@@ -285,8 +281,8 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
   const specificSkillMatch = matchSkillFocus(normalized);
   if (
     specificSkillMatch &&
-    !normalized.includes('strongest technical skills') &&
-    !normalized.includes('قوی‌ترین مهارت')
+    !normalized.includes('main tech stack') &&
+    !normalized.includes('strongest technical skills')
   ) {
     return {
       intent: 'skills',
@@ -335,21 +331,20 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
     };
   }
 
-  // 7. Experience / Work history / Paystar
+  // 7. Experience / Work history / Paystar / NPA
   if (
     normalized.includes('experience') ||
     normalized.includes('work history') ||
+    normalized.includes('worked') ||
+    normalized.includes('where have you') ||
     normalized.includes('career') ||
     normalized.includes('paystar') ||
+    normalized.includes('npa') ||
+    normalized.includes('national publishing') ||
+    normalized.includes('oman') ||
     normalized.includes('company') ||
     normalized.includes('companies') ||
-    normalized.includes('job') ||
-    normalized.includes('سابقه') ||
-    normalized.includes('سوابق') ||
-    normalized.includes('تجربه') ||
-    normalized.includes('شغلی') ||
-    normalized.includes('پی‌استار') ||
-    normalized.includes('پی استار')
+    normalized.includes('job')
   ) {
     return {
       intent: 'experience',
@@ -492,18 +487,16 @@ export function generateLocalAssistantResponse(rawInput: string): AssistantRespo
     };
   }
 
-  // 12. About / Tell me about yourself / Greeting
+  // 12. About / Background / Greeting
   if (
+    normalized.includes('background') ||
     normalized.includes('about yourself') ||
     normalized.includes('who are you') ||
+    normalized.includes('who is hosein') ||
     normalized.includes('introduce') ||
     normalized.includes('about hosein') ||
     normalized.includes('tell me about you') ||
-    normalized.includes('درباره خودت') ||
-    normalized.includes('معرفی') ||
-    normalized.includes('کی هستی') ||
-    normalized.includes('حسین صداقت') ||
-    /^(hi|hello|hey|greetings|سلام|درود|وقت بخیر)[!.?؟\s]*$/.test(normalized)
+    /^(hi|hello|hey|greetings)[!.?\s]*$/.test(normalized)
   ) {
     return {
       intent: 'about',

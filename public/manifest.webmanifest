@@ -1,0 +1,23 @@
+{
+  "name": "Hosein Sedaqat (حسین صداقت) — Full-Stack Developer",
+  "short_name": "Hosein Sedaqat",
+  "description": "Official portfolio & resume of Hosein Sedaqat (حسین صداقت), Full-Stack Developer specializing in React, Next.js, Vue.js, Node.js, and TypeScript.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/photo/hosein-sedaqat.jpg",
+      "sizes": "800x800",
+      "type": "image/jpeg"
+    }
+  ]
+}

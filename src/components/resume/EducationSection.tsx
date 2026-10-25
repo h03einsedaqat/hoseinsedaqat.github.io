@@ -100,7 +100,19 @@ export function EducationSection({ compact = false }: EducationSectionProps) {
                 </div>
                 {cert.credentialId && (
                   <div dir="ltr" className="mt-0.5 text-start text-[11px] text-ink-muted">
-                    Credential ID {cert.credentialId}
+                    Credential ID{' '}
+                    {cert.url ? (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-mono text-ink-secondary underline-offset-2 hover:text-ink hover:underline"
+                      >
+                        {cert.credentialId}
+                      </a>
+                    ) : (
+                      <span className="font-mono">{cert.credentialId}</span>
+                    )}
                   </div>
                 )}
                 {cert.url && (
@@ -110,7 +122,7 @@ export function EducationSection({ compact = false }: EducationSectionProps) {
                     rel="noopener noreferrer"
                     className="mt-2 inline-flex items-center gap-1 rounded-full border border-line bg-elevated px-2.5 py-0.5 text-[11px] font-medium text-ink transition-colors hover:bg-hover"
                   >
-                    <span>{locale === 'fa' ? 'مشاهده مدرک' : 'Show credential'}</span>
+                    <span>Show credential</span>
                     <ExternalLink className="h-2.5 w-2.5 text-ink-muted" aria-hidden="true" />
                   </a>
                 )}
